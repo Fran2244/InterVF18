@@ -76,10 +76,12 @@ public class ObjectManager : MonoBehaviour {
 
     public void RemoveGuard(GameObject guard)
     {
-        guards.Remove(guard);
+        if (guards.Contains(guard))
+            guards.Remove(guard);
     }
     public void RemoveDetector(GameObject detector)
     {
-        detectors.Remove(detector);
+        if (detectors.Contains(detector))
+            detectors.Remove(detector);
     }
 }

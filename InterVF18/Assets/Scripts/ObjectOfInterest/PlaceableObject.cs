@@ -6,9 +6,12 @@ using System.Linq;
 class PlaceableObject : MonoBehaviour {
 
     Transform player = null;
+    float forwardCastdeviation = 1f;
     float sphereCastRadius = 0.5f;
-    float maxCastDistance = 1f;
-    float minSpaceToPlaceGuard = 1f;
+    float maxCastDistance = 4f;
+    float maxCastDistanceTrip = 0.5f;
+    float minSpaceToPlaceGuard = 2.75f;
+    float maxDistToPlaceTrip = 3.75f;
     float distGuardFromPlayer = 0.5f;
     public bool objectPlaced = false;
     Vector3 camOffset = new Vector3(0f,0.3f,0f);
@@ -29,28 +32,33 @@ class PlaceableObject : MonoBehaviour {
         }
         if (gameObject.tag == "Guard")
         {
-            hitList = Physics.SphereCastAll(player.position, sphereCastRadius, player.forward, maxCastDistance).ToList();
-            hitList = hitList.OrderBy(x => Vector2.Distance(player.position, x.transform.position)).ToList();
-            if (Vector3.Distance(hitList[0].transform.position, player.position) >= minSpaceToPlaceGuard)
+            hitList = Physics.SphereCastAll(player.position + player.forward * forwardCastdeviation, sphereCastRadius, player.forward, maxCastDistance, LayerMask.NameToLayer("Environement")).ToList();
+            if (hitList.Count != 0)
             {
-                if (objectCanBePlaced)
+                hitList = hitList.OrderBy(x => Vector3.Distance(player.position, x.point)).ToList();
+                if (Vector3.Distance(hitList[0].point, player.position) <= minSpaceToPlaceGuard)
                 {
-                    transform.position = player.forward * distGuardFromPlayer;
-                    transform.rotation = Quaternion.LookRotation(player.position - transform.position);
-                    objectPlaced = true;
+                    return false;
                 }
-                return true;
+                else
+                {
+                    if (objectCanBePlaced)
+                    {
+                        objectPlaced = true;
+                    }
+                    return true;
+                }
             }
             else
             {
-                return false;
+                return true;
             }
         }
         else if(gameObject.tag == "Cam")
         {
-            hitList = Physics.SphereCastAll(player.position, sphereCastRadius, player.forward, maxCastDistance, LayerMask.NameToLayer("Default")).ToList();
+            hitList = Physics.SphereCastAll(player.position, sphereCastRadius, player.forward, maxCastDistance).ToList();
             foreach(RaycastHit hit in hitList)
-            {
+            { 
                 if(hit.transform.gameObject.layer != LayerMask.NameToLayer("Environement"))
                 {
                     hitList.Remove(hit);
@@ -65,7 +73,7 @@ class PlaceableObject : MonoBehaviour {
             {
                 if (objectCanBePlaced)
                 {
-                    hitList = hitList.OrderBy(x => Vector2.Distance(player.position, x.transform.position)).ToList();
+                    hitList = hitList.OrderBy(x => hitList[0].distance).ToList();
                     transform.position = hitList[0].point;
                     transform.Translate(camOffset);
                     transform.rotation = Quaternion.LookRotation(hitList[0].normal + hitList[1].normal);
@@ -83,46 +91,33 @@ class PlaceableObject : MonoBehaviour {
                     transform.SetParent(objectsOfInterestParent);
                     objectPlaced = true;
                 }
+                return true;
             }
-            return true;
         }
         else if (gameObject.tag == "TripWire")
         {
-            hitList = Physics.SphereCastAll(player.position, sphereCastRadius, player.forward, maxCastDistance, LayerMask.NameToLayer("Default")).ToList();
-            foreach (RaycastHit hit in hitList)
+            RaycastHit hit;
+            if(Physics.Raycast(player.position, player.forward, out hit))
             {
-                if (hit.transform.gameObject.layer != LayerMask.NameToLayer("Environement"))
+                if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Environement") && hit.distance < maxDistToPlaceTrip)
                 {
-                    hitList.Remove(hit);
+                    if (objectCanBePlaced)
+                    {
+                        transform.position = hit.point;
+                        transform.rotation = Quaternion.LookRotation(hit.normal);
+                        transform.SetParent(objectsOfInterestParent);
+                        objectPlaced = true;
+                    }
+                    return true;
                 }
-            }
-            if (hitList.Count == 0)
-            {
-                return false;
-            }
-
-            if (hitList.Count > 1)
-            {
-                if (objectCanBePlaced)
+                else
                 {
-                    hitList = hitList.OrderBy(x => Vector2.Distance(player.position, x.transform.position)).ToList();
-                    transform.position = hitList[0].point;
-                    transform.rotation = Quaternion.LookRotation(hitList[0].normal + hitList[1].normal);
-                    transform.SetParent(objectsOfInterestParent);
-                    objectPlaced = true;
+                    return false;
                 }
-                return true;
             }
             else
             {
-                if (objectCanBePlaced)
-                {
-                    transform.position = hitList[0].point;
-                    transform.rotation = Quaternion.LookRotation(hitList[0].normal);
-                    transform.SetParent(objectsOfInterestParent);
-                    objectPlaced = true;
-                }
-                return true;
+                return false;
             }
         }
         return false;
