@@ -11,7 +11,24 @@ public class ArrowPath : MonoBehaviour {
     [SerializeField] Material arrow;
 
     List<LineRenderer> lines = new List<LineRenderer>();
-    
+
+    private bool isActive = false;
+    public bool IsActive
+    {
+        get
+        {
+            return isActive;
+        }
+        set
+        {
+            isActive = value;
+            if (isActive)
+                ActivateArrows();
+            else
+                DeactivateArrow();
+        }
+    }
+
     void Start () {
         for (int i=1;i< transform.childCount; i++) {
             LineRenderer line = transform.GetChild(i).gameObject.AddComponent<LineRenderer>();
@@ -35,6 +52,22 @@ public class ArrowPath : MonoBehaviour {
         {
             lines[i].material.SetTextureOffset("_MainTex", offset);
         }
-        
     }
+
+    void ActivateArrows()
+    {
+        for (int i = 0; i < lines.Count; i++)
+        {
+            lines[i].enabled = true;
+        }
+    }
+
+    void DeactivateArrow()
+    {
+        for (int i = 0; i < lines.Count; i++)
+        {
+            lines[i].enabled = false;
+        }
+    }
+
 }

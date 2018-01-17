@@ -5,8 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public struct Wave {
 
-    [SerializeField]
-    float startTime;
+    public float startTime;
 
     public float spawnRate;
 

@@ -20,38 +20,30 @@ public class WaveManager : MonoBehaviour {
     #endregion
 
     [SerializeField]
-    float startDelay;
-
-    [SerializeField]
-    float TimeBetweenWaves;
-
-    [SerializeField]
     Wave[] waves;
 
     [SerializeField]
     Path[] paths;
 
-    private int currentWave;
+    int[] pathUsed;
 
     void Start()
     {
-        currentWave = 0;
-        StartCoroutine(WaitAndSpawn(startDelay));
+        pathUsed = new int[paths.Length];
+        for(int i = 0; i < pathUsed.Length; ++i)
+        {
+            pathUsed[i] = 0;
+        }
+        for (int i = 0; i < waves.Length; ++i)
+        {
+            StartCoroutine(WaitAndSpawn(waves[i]));
+        }
     }
 
-    IEnumerator WaitAndSpawn(float waitTime)
+    IEnumerator WaitAndSpawn(Wave wave)
     {
-        yield return new WaitForSeconds(waitTime);
-        if (currentWave < waves.Length)
-        {
-            StartCoroutine(SpawnNextWave(waves[currentWave]));
-            currentWave++;
-        } else
-        {
-            //TODO: Win current level.
-
-        }
-
+        yield return new WaitForSeconds(wave.startTime);
+        StartCoroutine(SpawnNextWave(wave));
     }
 
     IEnumerator SpawnNextWave(Wave wave)
