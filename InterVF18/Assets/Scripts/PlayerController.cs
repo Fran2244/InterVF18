@@ -7,18 +7,31 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float turnSpeed = 1.0f;
     private Rigidbody playerRB;
 
-    [SerializeField]
-    GameObject prefabCamera;
-
     bool isBuilding;
     PlaceableObject buildingObject;
 
-	void Start ()
+    #region ObjectsOfInterest
+    [SerializeField] ParticleSystem OOIPlacementIndicator;
+    [SerializeField] Transform OOISpawn;
+    [SerializeField] GameObject tripWire;
+    [SerializeField] GameObject cam;
+    [SerializeField] GameObject guard;
+    GameObject activeOOI;
+    #endregion
+
+    void Start ()
     {
         playerRB = GetComponent<Rigidbody>();
         isBuilding = false;
+        activeOOI = new GameObject();
+        OOIPlacementIndicator.Stop();
 	}
 	
+    void Update()
+    {
+        CheckForObjectOfInterestPlacement();
+    }
+
     private void FixedUpdate()
     {
         Vector3 move = Vector3.zero;
@@ -49,6 +62,46 @@ public class PlayerController : MonoBehaviour
         if (move.magnitude > 0.0f)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(move.normalized), turnSpeed);
+        }
+    }
+
+    void CheckForObjectOfInterestPlacement()
+    {
+        if(Input.GetButtonDown("BuildGuard"))
+        {
+            OOIPlacementIndicator.Play();
+            activeOOI = Instantiate(guard, OOISpawn.position, OOISpawn.rotation, OOISpawn);
+        }
+        else if (Input.GetButtonDown("BuildCamera"))
+        {
+            OOIPlacementIndicator.Play();
+            activeOOI = Instantiate(cam, OOISpawn.position, OOISpawn.rotation, OOISpawn);
+        }
+        else if (Input.GetButtonDown("BuildTripWire"))
+        {
+            OOIPlacementIndicator.Play();
+            activeOOI = Instantiate(tripWire, OOISpawn.position, OOISpawn.rotation, OOISpawn);
+        }
+
+        if(Input.GetButton("BuildGuard") || Input.GetButton("BuildCamera") || Input.GetButton("BuildTripWire"))
+        {
+            if(!activeOOI.GetComponent<PlaceableObject>().PlaceObject())
+            {
+                OOIPlacementIndicator.startColor = Color.red;
+            }
+            else
+            {
+                OOIPlacementIndicator.startColor = Color.green;
+            }
+        }
+        else
+        {
+            OOIPlacementIndicator.Stop();
+            if(!activeOOI.GetComponent<PlaceableObject>().objectPlaced)
+            {
+                Destroy(activeOOI);
+                activeOOI = new GameObject();
+            }
         }
     }
 }

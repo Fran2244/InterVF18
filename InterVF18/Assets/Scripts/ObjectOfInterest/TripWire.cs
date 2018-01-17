@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TripWire : MonoBehaviour {
+class TripWire : PlaceableObject {
 
     [SerializeField]
     Transform firePoint;
