@@ -25,4 +25,19 @@ public class TempAddToCollection : MonoBehaviour {
                 break;
         }
     }
+
+    void OnDestroy()
+    {
+        switch (type)
+        {
+            case ObjectType.Detector:
+                ObjectManager.Instance.RemoveDetector(gameObject);
+                break;
+            case ObjectType.Guard:
+                ObjectManager.Instance.RemoveGuard(gameObject);
+                break;
+            default:
+                break;
+        }
+    }
 }

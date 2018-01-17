@@ -36,7 +36,7 @@ class CameraBehaviour : MonoBehaviour
     const float screenEdgeDetection = 0.95f;
     const float camFollowPlayerSpeed = 50f;
     const float zoomStrafeMultiplier = 0.1f;
-    const float maxTimer = 2f;
+    const float maxTimer = 1f;
     #endregion
 
     #region Variables

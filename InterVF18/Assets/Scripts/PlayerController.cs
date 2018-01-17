@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
@@ -23,6 +25,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject cam;
     [SerializeField] GameObject guard;
     GameObject activeOOI;
+    int camCount = 0;
+    int tripCount = 0;
+    int guardCount = 0;
+    float guardScaleMultiplier = 1.5f;
     #endregion
 
     void Start ()
@@ -30,8 +36,7 @@ public class PlayerController : MonoBehaviour
         playerRB = GetComponent<Rigidbody>();
         isBuilding = false;
         activeOOI = new GameObject();
-        InitIndicators();
-
+        InitIndicatorsToOff();
     }
 	
     void Update()
@@ -77,59 +82,72 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetButtonDown("BuildGuard"))
         {
-            OOIPlacementInnerIndicator.GetComponent<Renderer>().enabled = true;
-            OOIPlacementOuterIndicator.GetComponent<Renderer>().enabled = true;
-            OOIPlacementTopIndicator.GetComponent<Renderer>().enabled = true;
-            indicatorLight.GetComponent<Renderer>().enabled = true;
+            InitIndicatorsToOn();
             activeOOI = Instantiate(guard, OOISpawn.position, OOISpawn.rotation, OOISpawn);
+            activeOOI.transform.localScale /= guardScaleMultiplier;
+            activeOOI.name = "Guard" + ++guardCount;
+            foreach (Behaviour behaviour in activeOOI.GetComponents<Behaviour>())
+            {
+                behaviour.enabled = false;
+            }
         }
         else if (Input.GetButtonDown("BuildCamera"))
         {
+            InitIndicatorsToOn();
             activeOOI = Instantiate(cam, OOISpawn.position, OOISpawn.rotation, OOISpawn);
+            activeOOI.name = "Cam" + ++camCount;
         }
         else if (Input.GetButtonDown("BuildTripWire"))
         {
+            InitIndicatorsToOn();
             activeOOI = Instantiate(tripWire, OOISpawn.position, OOISpawn.rotation, OOISpawn);
+            activeOOI.GetComponent<TripWire>().enabled = false;
+            activeOOI.name = "trip" + ++tripCount;
         }
-
-        if (activeOOI.GetComponent<PlaceableObject>() != null)
-        {
             if (Input.GetButton("BuildGuard") || Input.GetButton("BuildCamera") || Input.GetButton("BuildTripWire"))
             {
-                if (!activeOOI.GetComponent<PlaceableObject>().PlaceObject(false))
+                if (activeOOI.GetComponent<PlaceableObject>() != null)
                 {
-                    OOIPlacementInnerIndicator.GetComponent<Renderer>().material.color = Color.red;
-                    OOIPlacementOuterIndicator.GetComponent<Renderer>().material.color = Color.red;
-                    OOIPlacementTopIndicator.GetComponent<Renderer>().material.color = Color.red;
-                    indicatorLight.color = lightRed;
+                    if (!activeOOI.GetComponent<PlaceableObject>().PlaceObject(false))
+                    {
+                        MakeIndicatorsRed();
 
-                }
-                else
-                {
-                    OOIPlacementInnerIndicator.GetComponent<Renderer>().material.color = Color.green;
-                    OOIPlacementOuterIndicator.GetComponent<Renderer>().material.color = Color.green;
-                    OOIPlacementTopIndicator.GetComponent<Renderer>().material.color = Color.green;
-                    indicatorLight.color = lightGreen;
+                    }
+                    else
+                    {
+                        MakeIndicatorsGreen();
+                    }
                 }
             }
-            if(Input.GetButtonUp("BuildGuard") || Input.GetButtonUp("BuildCamera") || Input.GetButtonUp("BuildTripWire"))
+        if (Input.GetButtonUp("BuildGuard") || Input.GetButtonUp("BuildCamera") || Input.GetButtonUp("BuildTripWire"))
+        {
+            if (activeOOI.GetComponent<PlaceableObject>() != null)
             {
-                OOIPlacementInnerIndicator.GetComponent<Renderer>().enabled = false;
-                OOIPlacementOuterIndicator.GetComponent<Renderer>().enabled = false;
-                OOIPlacementTopIndicator.GetComponent<Renderer>().enabled = false;
-                indicatorLight.GetComponent<Renderer>().enabled = false;
+                InitIndicatorsToOff();
                 if (activeOOI.GetComponent<PlaceableObject>().PlaceObject(false))
                 {
                     activeOOI.GetComponent<PlaceableObject>().PlaceObject(true);
                 }
 
-                if (activeOOI.GetComponent<PlaceableObject>().objectPlaced)
+                if (activeOOI.GetComponent<PlaceableObject>().objectPlaced == false)
                 {
+                    if(activeOOI.GetComponent<TripWire>() != null)
+                    {
+                        activeOOI.GetComponent<TripWire>().enabled = true;
+                    }
+                    if(activeOOI.tag == "Guard")
+                    {
+                        activeOOI.transform.localScale *= guardScaleMultiplier;
+                        foreach (Behaviour behaviour in activeOOI.GetComponents<Behaviour>())
+                        {
+                            behaviour.enabled = true;
+                        }
+                    }
+                    Destroy(activeOOI);
                     activeOOI = null;
                 }
             }
         }
-
     }
 
     void RotateIndicators()
@@ -139,11 +157,35 @@ public class PlayerController : MonoBehaviour
         OOIPlacementTopIndicator.transform.Rotate(transform.up, -indicatorRotationAngle);
     }
 
-    void InitIndicators()
+    void InitIndicatorsToOff()
     {
         OOIPlacementInnerIndicator.GetComponent<Renderer>().enabled = false;
         OOIPlacementOuterIndicator.GetComponent<Renderer>().enabled = false;
         OOIPlacementTopIndicator.GetComponent<Renderer>().enabled = false;
-        indicatorLight.GetComponent<Renderer>().enabled = false;
+        indicatorLight.enabled = false;
+    }
+
+    void InitIndicatorsToOn()
+    {
+        OOIPlacementInnerIndicator.GetComponent<Renderer>().enabled = true;
+        OOIPlacementOuterIndicator.GetComponent<Renderer>().enabled = true;
+        OOIPlacementTopIndicator.GetComponent<Renderer>().enabled = true;
+        indicatorLight.enabled = true;
+    }
+
+    void MakeIndicatorsGreen()
+    {
+        OOIPlacementInnerIndicator.GetComponent<Renderer>().material.color = Color.green;
+        OOIPlacementOuterIndicator.GetComponent<Renderer>().material.color = Color.green;
+        OOIPlacementTopIndicator.GetComponent<Renderer>().material.color = Color.green;
+        indicatorLight.color = lightGreen;
+    }
+
+    void MakeIndicatorsRed()
+    {
+        OOIPlacementInnerIndicator.GetComponent<Renderer>().material.color = Color.red;
+        OOIPlacementOuterIndicator.GetComponent<Renderer>().material.color = Color.red;
+        OOIPlacementTopIndicator.GetComponent<Renderer>().material.color = Color.red;
+        indicatorLight.color = lightRed;
     }
 }
