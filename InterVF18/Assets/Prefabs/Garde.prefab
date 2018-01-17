@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 114700218368700992}
   - component: {fileID: 114300127598957402}
   - component: {fileID: 114773813532516862}
+  - component: {fileID: 114655482273986398}
   m_Layer: 0
   m_Name: Garde
   m_TagString: Untagged
@@ -724,6 +725,23 @@ MonoBehaviour:
   navMeshAgent: {fileID: 0}
   wayPoints: []
   nextWayPoint: 0
+  target: {fileID: 0}
+  closeEnoughtDistance: 0
+--- !u!114 &114655482273986398
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1338592607535580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d466997f0b69d8843b4bbd86ab3b6f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cycleTimeFixed: 3.5
+  cycleTimeRandom: 2
+  yChangeFixed: 0.2
+  yChangeRandom: 0.1
 --- !u!114 &114700218368700992
 MonoBehaviour:
   m_ObjectHideFlags: 1

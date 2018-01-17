@@ -234,6 +234,7 @@ GameObject:
   - component: {fileID: 136676430232489172}
   - component: {fileID: 54531148332136078}
   - component: {fileID: 114371584252737502}
+  - component: {fileID: 114051322118046876}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1705,6 +1706,21 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114051322118046876
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1354809308765388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d466997f0b69d8843b4bbd86ab3b6f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cycleTimeFixed: 4
+  cycleTimeRandom: 1
+  yChangeFixed: 0.2
+  yChangeRandom: 0.1
 --- !u!114 &114371584252737502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1718,6 +1734,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   turnSpeed: 0.5
+  prefabCamera: {fileID: 0}
 --- !u!136 &136676430232489172
 CapsuleCollider:
   m_ObjectHideFlags: 1
