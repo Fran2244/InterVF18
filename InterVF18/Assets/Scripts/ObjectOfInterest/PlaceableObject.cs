@@ -10,6 +10,7 @@ class PlaceableObject : MonoBehaviour {
     float maxCastDistance = 1f;
     float minSpaceToPlaceGuard = 1f;
     float distGuardFromPlayer = 0.5f;
+    public bool objectPlaced = false;
     Vector3 camOffset = new Vector3(0f,0.3f,0f);
     List<RaycastHit> hitList = new List<RaycastHit>();
 
@@ -29,6 +30,7 @@ class PlaceableObject : MonoBehaviour {
                 {
                     transform.position = player.forward * distGuardFromPlayer;
                     transform.rotation = Quaternion.LookRotation(player.position - transform.position);
+                    objectPlaced = true;
                     return true;
                 }
                 else if (Input.GetKey(KeyCode.Alpha1) || Input.GetKeyUp(KeyCode.Keypad1))
@@ -64,6 +66,7 @@ class PlaceableObject : MonoBehaviour {
                     transform.position = hitList[0].point;
                     transform.Translate(camOffset);
                     transform.rotation = Quaternion.LookRotation(hitList[0].normal + hitList[1].normal);
+                    objectPlaced = true;
                 }
                 else if (Input.GetKey(KeyCode.Alpha2) || Input.GetKeyUp(KeyCode.Keypad2))
                 {
@@ -76,6 +79,7 @@ class PlaceableObject : MonoBehaviour {
                 {
                     transform.position = hitList[0].point;
                     transform.rotation = Quaternion.LookRotation(hitList[0].normal);
+                    objectPlaced = true;
                 }
                 else if (Input.GetKey(KeyCode.Alpha2) || Input.GetKeyUp(KeyCode.Keypad2))
                 {
@@ -106,6 +110,7 @@ class PlaceableObject : MonoBehaviour {
                     hitList = hitList.OrderBy(x => Vector2.Distance(player.position, x.transform.position)).ToList();
                     transform.position = hitList[0].point;
                     transform.rotation = Quaternion.LookRotation(hitList[0].normal + hitList[1].normal);
+                    objectPlaced = true;
                 }
                 else if (Input.GetKey(KeyCode.Alpha3) || Input.GetKeyUp(KeyCode.Keypad3))
                 {
@@ -118,6 +123,7 @@ class PlaceableObject : MonoBehaviour {
                 {
                     transform.position = hitList[0].point;
                     transform.rotation = Quaternion.LookRotation(hitList[0].normal);
+                    objectPlaced = true;
                 }
                 else if (Input.GetKey(KeyCode.Alpha3) || Input.GetKeyUp(KeyCode.Keypad3))
                 {
