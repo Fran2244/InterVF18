@@ -35,6 +35,7 @@ class CameraBehaviour : MonoBehaviour
     const float camScreenBorderFollowSpeed = 5f;
     const float screenEdgeDetection = 0.95f;
     const float camFollowPlayerSpeed = 50f;
+    const float zoomStrafeMultiplier = 0.1f;
     const float maxTimer = 2f;
     #endregion
 
@@ -139,7 +140,7 @@ class CameraBehaviour : MonoBehaviour
         {
             if (screenEdgeDetected)
             {
-                relativeWorldPos.transform.Translate(screenEdgeTranslate.x, 0f, screenEdgeTranslate.y);
+                relativeWorldPos.transform.Translate(screenEdgeTranslate.x * zoom * zoomStrafeMultiplier, 0f, screenEdgeTranslate.y * zoom * zoomStrafeMultiplier);
             }
             transform.position = Vector3.Lerp(transform.position, relativeWorldPos.transform.position + offsetTopDownMode, Time.deltaTime * camScreenBorderFollowSpeed);
         }
