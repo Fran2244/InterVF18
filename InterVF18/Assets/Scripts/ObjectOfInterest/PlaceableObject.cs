@@ -13,8 +13,15 @@ class PlaceableObject : MonoBehaviour {
     public bool objectPlaced = false;
     Vector3 camOffset = new Vector3(0f,0.3f,0f);
     List<RaycastHit> hitList = new List<RaycastHit>();
+    Transform objectsOfInterestParent;
 
-    public bool PlaceObject()
+    void Start()
+    {
+        objectsOfInterestParent = GameObject.Find("MegaManager").transform.Find("ObjectsOfInterest").transform;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
+    public bool PlaceObject(bool objectCanBePlaced)
     {
         if (player == null)
         {
@@ -24,19 +31,16 @@ class PlaceableObject : MonoBehaviour {
         {
             hitList = Physics.SphereCastAll(player.position, sphereCastRadius, player.forward, maxCastDistance).ToList();
             hitList = hitList.OrderBy(x => Vector2.Distance(player.position, x.transform.position)).ToList();
-            if(Vector3.Distance(hitList[0].transform.position, player.position) >= minSpaceToPlaceGuard)
+            if (Vector3.Distance(hitList[0].transform.position, player.position) >= minSpaceToPlaceGuard)
             {
-                if (Input.GetKeyUp(KeyCode.Alpha1) || Input.GetKeyUp(KeyCode.Keypad1))
+                if (objectCanBePlaced)
                 {
                     transform.position = player.forward * distGuardFromPlayer;
                     transform.rotation = Quaternion.LookRotation(player.position - transform.position);
+                    transform.SetParent(objectsOfInterestParent);
                     objectPlaced = true;
-                    return true;
                 }
-                else if (Input.GetKey(KeyCode.Alpha1) || Input.GetKeyUp(KeyCode.Keypad1))
-                {
-                    return true;
-                }
+                return true;
             }
             else
             {
@@ -60,30 +64,25 @@ class PlaceableObject : MonoBehaviour {
 
             if (hitList.Count > 1)
             {
-                if (Input.GetKeyUp(KeyCode.Alpha2) || Input.GetKeyUp(KeyCode.Keypad2))
+                if (objectCanBePlaced)
                 {
                     hitList = hitList.OrderBy(x => Vector2.Distance(player.position, x.transform.position)).ToList();
                     transform.position = hitList[0].point;
                     transform.Translate(camOffset);
                     transform.rotation = Quaternion.LookRotation(hitList[0].normal + hitList[1].normal);
+                    transform.SetParent(objectsOfInterestParent);
                     objectPlaced = true;
                 }
-                else if (Input.GetKey(KeyCode.Alpha2) || Input.GetKeyUp(KeyCode.Keypad2))
-                {
-                    return true;
-                }
+                return true;
             }
             else
             {
-                if (Input.GetKeyUp(KeyCode.Alpha2) || Input.GetKeyUp(KeyCode.Keypad2))
+                if (objectCanBePlaced)
                 {
                     transform.position = hitList[0].point;
                     transform.rotation = Quaternion.LookRotation(hitList[0].normal);
+                    transform.SetParent(objectsOfInterestParent);
                     objectPlaced = true;
-                }
-                else if (Input.GetKey(KeyCode.Alpha2) || Input.GetKeyUp(KeyCode.Keypad2))
-                {
-                    return true;
                 }
             }
             return true;
@@ -105,32 +104,27 @@ class PlaceableObject : MonoBehaviour {
 
             if (hitList.Count > 1)
             {
-                if ((Input.GetKeyUp(KeyCode.Alpha3) || Input.GetKeyUp(KeyCode.Keypad3)))
+                if (objectCanBePlaced)
                 {
                     hitList = hitList.OrderBy(x => Vector2.Distance(player.position, x.transform.position)).ToList();
                     transform.position = hitList[0].point;
                     transform.rotation = Quaternion.LookRotation(hitList[0].normal + hitList[1].normal);
+                    transform.SetParent(objectsOfInterestParent);
                     objectPlaced = true;
                 }
-                else if (Input.GetKey(KeyCode.Alpha3) || Input.GetKeyUp(KeyCode.Keypad3))
-                {
-                    return true;
-                }
+                return true;
             }
             else
             {
-                if ((Input.GetKeyUp(KeyCode.Alpha3) || Input.GetKeyUp(KeyCode.Keypad3)))
+                if (objectCanBePlaced)
                 {
                     transform.position = hitList[0].point;
                     transform.rotation = Quaternion.LookRotation(hitList[0].normal);
+                    transform.SetParent(objectsOfInterestParent);
                     objectPlaced = true;
                 }
-                else if (Input.GetKey(KeyCode.Alpha3) || Input.GetKeyUp(KeyCode.Keypad3))
-                {
-                    return true;
-                }
+                return true;
             }
-            return true;
         }
         return false;
     }
