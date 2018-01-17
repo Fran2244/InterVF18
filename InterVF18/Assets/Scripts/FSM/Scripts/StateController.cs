@@ -12,6 +12,7 @@ public class StateController : MonoBehaviour
     [HideInInspector] public GameObject fetchObj;
 
     public Transform target = null;
+    public Transform eye = null;
     public bool isChasing = false;
 
     private void Awake()

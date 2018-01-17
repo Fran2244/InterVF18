@@ -152,7 +152,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: LeftHandUp
+      name: RightHandUp
       takeName: Take 001
       firstFrame: 0
       lastFrame: 43
@@ -180,7 +180,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: LeftHandDown
+      name: RightHandDown
       takeName: Take 001
       firstFrame: 44
       lastFrame: 86
@@ -208,7 +208,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: RightHandUp
+      name: LeftHandUp
       takeName: Take 001
       firstFrame: 87
       lastFrame: 131
@@ -236,7 +236,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: RightHandDown
+      name: LeftHandDown
       takeName: Take 001
       firstFrame: 132
       lastFrame: 174
