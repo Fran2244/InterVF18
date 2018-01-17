@@ -171,6 +171,7 @@ GameObject:
   m_Component:
   - component: {fileID: 250188455}
   - component: {fileID: 250188456}
+  - component: {fileID: 250188457}
   m_Layer: 5
   m_Name: LeftSide
   m_TagString: Untagged
@@ -203,6 +204,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 250188454}
+--- !u!225 &250188457
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 250188454}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &290829655
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,8 +373,8 @@ CanvasGroup:
   m_GameObject: {fileID: 364314780}
   m_Enabled: 1
   m_Alpha: 0
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &364314783
 MonoBehaviour:
@@ -1298,6 +1310,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneIndex: 1
+  imgFader: {fileID: 364314782}
+  menuItems:
+  - {fileID: 1534933485}
+  - {fileID: 250188457}
 --- !u!1001 &1396631207
 Prefab:
   m_ObjectHideFlags: 0
@@ -1432,6 +1448,7 @@ GameObject:
   - component: {fileID: 1534933482}
   - component: {fileID: 1534933484}
   - component: {fileID: 1534933483}
+  - component: {fileID: 1534933485}
   m_Layer: 5
   m_Name: Panel_Info
   m_TagString: Untagged
@@ -1492,6 +1509,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1534933481}
+--- !u!225 &1534933485
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1534933481}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1588828097
 GameObject:
   m_ObjectHideFlags: 0
