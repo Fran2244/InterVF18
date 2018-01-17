@@ -63,6 +63,7 @@ class PlaceableObject : MonoBehaviour {
                     hitList.Remove(hit);
                 }
             }
+            Debug.Log(hitList.Count);
             if(hitList.Count == 0)
             {
                 return false;
