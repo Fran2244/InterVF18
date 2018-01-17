@@ -1,0 +1,5 @@
+InterVF18/Library/
+InterVF18/Temp/
+*.csproj
+*.sln
+InterVF18/.vs/
