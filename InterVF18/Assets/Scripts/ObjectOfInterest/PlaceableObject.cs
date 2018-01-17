@@ -10,7 +10,7 @@ class PlaceableObject : MonoBehaviour {
     float sphereCastRadius = 0.5f;
     float maxCastDistance = 4f;
     float maxCastDistanceTrip = 0.5f;
-    float minSpaceToPlaceGuard = 2.75f;
+    float minSpaceToPlaceGuard = 3.75f;
     float maxDistToPlaceTrip = 3.75f;
     float distGuardFromPlayer = 0.5f;
     public bool objectPlaced = false;
@@ -32,15 +32,10 @@ class PlaceableObject : MonoBehaviour {
         }
         if (gameObject.tag == "Guard")
         {
-            hitList = Physics.SphereCastAll(player.position + player.forward * forwardCastdeviation, sphereCastRadius, player.forward, maxCastDistance, LayerMask.NameToLayer("Environement")).ToList();
-            if (hitList.Count != 0)
+            RaycastHit hit;
+            if (Physics.Raycast(player.position, player.forward, out hit))
             {
-                hitList = hitList.OrderBy(x => Vector3.Distance(player.position, x.point)).ToList();
-                if (Vector3.Distance(hitList[0].point, player.position) <= minSpaceToPlaceGuard)
-                {
-                    return false;
-                }
-                else
+                if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Environement") && hit.distance > minSpaceToPlaceGuard)
                 {
                     if (objectCanBePlaced)
                     {
@@ -48,10 +43,14 @@ class PlaceableObject : MonoBehaviour {
                     }
                     return true;
                 }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
-                return true;
+                return false;
             }
         }
         else if(gameObject.tag == "Cam")
