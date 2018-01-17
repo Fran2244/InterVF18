@@ -3,3 +3,5 @@ InterVF18/Temp/
 *.csproj
 *.sln
 InterVF18/.vs/
+InterVF18/obj/
+InterVF18/obj.bak/
