@@ -10,6 +10,15 @@ public class LineOfSight : MonoBehaviour {
     [SerializeField]
     float viewDistance;
 
+    [SerializeField]
+    Light spotLight;
+
+    private void Start()
+    {
+        spotLight.spotAngle = viewAngle;
+        spotLight.range = viewDistance;
+    }
+
     public float ViewAngle
     {
         get
