@@ -28,7 +28,6 @@ public class PlayerController : MonoBehaviour
     int camCount = 0;
     int tripCount = 0;
     int guardCount = 0;
-    float guardScaleMultiplier = 1.5f;
     #endregion
 
     void Start ()
@@ -84,7 +83,6 @@ public class PlayerController : MonoBehaviour
         {
             InitIndicatorsToOn();
             activeOOI = Instantiate(guard, OOISpawn.position, OOISpawn.rotation, OOISpawn);
-            activeOOI.transform.localScale /= guardScaleMultiplier;
             activeOOI.name = "Guard" + ++guardCount;
             foreach (Behaviour behaviour in activeOOI.GetComponents<Behaviour>())
             {
@@ -137,9 +135,9 @@ public class PlayerController : MonoBehaviour
                     }
                     if(activeOOI.tag == "Guard")
                     {
-                        activeOOI.transform.localScale *= guardScaleMultiplier;
                         foreach (Behaviour behaviour in activeOOI.GetComponents<Behaviour>())
                         {
+                            transform.parent = null;
                             behaviour.enabled = true;
                         }
                     }

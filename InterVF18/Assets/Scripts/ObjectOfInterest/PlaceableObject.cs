@@ -37,7 +37,6 @@ class PlaceableObject : MonoBehaviour {
                 {
                     transform.position = player.forward * distGuardFromPlayer;
                     transform.rotation = Quaternion.LookRotation(player.position - transform.position);
-                    transform.SetParent(objectsOfInterestParent);
                     objectPlaced = true;
                 }
                 return true;
