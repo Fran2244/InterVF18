@@ -7,6 +7,14 @@ public class State : ScriptableObject
     public Transition[] transitions;
     public Color gizmoColor = Color.gray;
 
+    public void StateEnter(StateController controller)
+    {
+        for (int i = 0; i < actions.Length; i++)
+        {
+            actions[i].ActEnter(controller);
+        }
+    }
+
     public void UpdateState(StateController controller)
     {
         DoActions(controller);
@@ -35,6 +43,14 @@ public class State : ScriptableObject
             {
                 controller.TransitionToState(transitions[i].falseState);
             }
+        }
+    }
+
+    public void StateExit(StateController controller)
+    {
+        for (int i = 0; i < actions.Length; i++)
+        {
+            actions[i].ActExit(controller);
         }
     }
 }

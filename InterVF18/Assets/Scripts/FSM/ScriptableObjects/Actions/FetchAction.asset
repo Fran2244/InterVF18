@@ -8,6 +8,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31764feb7b527f44c9a50bb8e973b760, type: 3}
-  m_Name: ScanDecision
+  m_Script: {fileID: 11500000, guid: bfe42e12f3558584fa38ac6cccdc8f32, type: 3}
+  m_Name: FetchAction
   m_EditorClassIdentifier: 

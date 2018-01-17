@@ -20,6 +20,9 @@ public class VisibilityManager : MonoBehaviour {
     }
     #endregion
 
+    public Transform prisonPos;
+    [SerializeField] private State guardChaseState;
+
     [SerializeField]
     LayerMask detectionLayerMask;
     public LayerMask DetectionLayerMask
@@ -52,6 +55,43 @@ public class VisibilityManager : MonoBehaviour {
             return visibleObjects;
         }
 
+    }
+
+    private void Update()
+    {
+        if (visibleObjects.Count > 0)
+        {
+            for (int i = 0; i < visibleObjects.Count; i++)
+            {
+                CharacterVisibility character = visibleObjects[i].GetComponent<CharacterVisibility>();
+                if (character != null && !character.isChased)
+                {
+                    StateController guard = null;
+                    float nearestGuardDist = float.MaxValue;
+                    for (int j = 0; j < ObjectManager.Instance.Guards.Count; j++)
+                    {
+                        StateController checkGuard = ObjectManager.Instance.Guards[j].GetComponent<StateController>();
+                        if (checkGuard != null && !checkGuard.isChasing)
+                        {
+                            float distance = Mathf.Abs((character.transform.position - checkGuard.transform.position).sqrMagnitude);
+                            if (nearestGuardDist > distance)
+                            {
+                                guard = checkGuard;
+                                nearestGuardDist = distance;
+                            }
+
+                        }
+                    }
+                    if (guard != null)
+                    {
+                        character.isChased = true;
+                        guard.isChasing = true;
+                        guard.target = character.transform;
+                        guard.TransitionToState(guardChaseState);
+                    }
+                }
+            }
+        }
     }
 
     private void Awake()

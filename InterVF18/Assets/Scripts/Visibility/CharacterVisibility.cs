@@ -8,6 +8,8 @@ public class CharacterVisibility : MonoBehaviour {
     [SerializeField]
     GameObject visibleIcon;
 
+    public bool isChased = false;
+
     bool isTracked;
     public bool IsTracked
     {

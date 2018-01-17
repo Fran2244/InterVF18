@@ -329,7 +329,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1338592607535580}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.75975245, y: 0.3, z: -26.907606}
+  m_LocalPosition: {x: -27.29, y: 5.502091e-17, z: -24.779215}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4887510936493162}
@@ -722,8 +722,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: {fileID: 11400000, guid: aeb92e35e3606e8418c3da42cf46b7f4, type: 2}
   navMeshAgent: {fileID: 0}
-  wayPoints: []
+  wayPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   nextWayPoint: 0
+  target: {fileID: 0}
+  closeEnoughtDistance: 0
+  isChasing: 0
 --- !u!114 &114700218368700992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -736,6 +742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visibleIcon: {fileID: 1413948451255706}
+  isChased: 0
   isChecked: 0
 --- !u!114 &114773813532516862
 MonoBehaviour:
@@ -748,7 +755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1bb450b58c679544a1d2e4e2162d401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 2
 --- !u!136 &136930217352055812
 CapsuleCollider:
   m_ObjectHideFlags: 1

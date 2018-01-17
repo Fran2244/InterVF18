@@ -9,10 +9,10 @@ public class StateController : MonoBehaviour
     [HideInInspector] public NavMeshAgent navMeshAgent;
     public Transform[] wayPoints;
     [HideInInspector] public int nextWayPoint;
+    [HideInInspector] public GameObject fetchObj;
 
     public Transform target = null;
-
-    public float closeEnoughtDistance;
+    public bool isChasing = false;
 
     private void Awake()
     {
@@ -21,6 +21,10 @@ public class StateController : MonoBehaviour
 
     void Update ()
     {
+        if (currentState == null)
+        {
+            return;
+        }
         currentState.UpdateState(this);
 	}
 
@@ -28,7 +32,9 @@ public class StateController : MonoBehaviour
     {
         if (nextState != null && nextState != currentState)
         {
+            currentState.StateExit(this);
             currentState = nextState;
+            currentState.StateEnter(this);
         }
     }
     public void SetPath(Transform[] path)
