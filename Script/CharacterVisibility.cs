@@ -8,6 +8,20 @@ public class CharacterVisibility : MonoBehaviour {
     [SerializeField]
     GameObject visibleIcon;
 
+    bool isTracked;
+    public bool IsTracked
+    {
+        get
+        {
+            return isTracked;
+        }
+    }
+    public void TrackCharacter(float trackingTime)
+    {
+        isTracked = true;
+        StartCoroutine(StopTracking(trackingTime));
+    }
+
     [HideInInspector] public bool isChecked;
     bool isVisible;
     public bool IsVisible
@@ -35,5 +49,12 @@ public class CharacterVisibility : MonoBehaviour {
     {
         isChecked = false;
     }
+
+    IEnumerator StopTracking(float timer)
+    {
+        yield return new WaitForSeconds(timer);
+        isTracked = false;
+    }
+
 
 }

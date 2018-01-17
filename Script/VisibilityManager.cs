@@ -56,29 +56,37 @@ public class VisibilityManager : MonoBehaviour {
         foreach (GameObject enemy in ObjectManager.Instance.Enemies)
         {
             CharacterVisibility visibility = enemy.GetComponent<CharacterVisibility>();
-            visibility.IsVisible = false;
-            visibility.isChecked = false;
-            foreach (GameObject detect in ObjectManager.Instance.Detectors)
+            if (visibility.IsTracked)
             {
-                if (!visibility.isChecked)
+                visibility.IsVisible = true;
+                visibility.isChecked = true;
+            }
+            else
+            {
+                visibility.IsVisible = false;
+                visibility.isChecked = false;
+                foreach (GameObject detect in ObjectManager.Instance.Detectors)
                 {
-                    LineOfSight LoS = detect.GetComponent<LineOfSight>();
-                    Vector3 rayCastDir = enemy.transform.position - detect.transform.position;
-                    RaycastHit rCH;
-                    if (Physics.Raycast(detect.transform.position, rayCastDir, out rCH, LoS.ViewDistance, detectionLayerMask))
+                    if (!visibility.isChecked)
                     {
-                        if (rCH.transform == enemy.transform && Vector3.Angle(rayCastDir, detect.transform.forward) < LoS.ViewAngle * 0.5f)
+                        LineOfSight LoS = detect.GetComponent<LineOfSight>();
+                        Vector3 rayCastDir = enemy.transform.position - detect.transform.position;
+                        RaycastHit rCH;
+                        if (Physics.Raycast(detect.transform.position, rayCastDir, out rCH, LoS.ViewDistance, detectionLayerMask))
                         {
-                            visibility.IsVisible = true;
-                            visibility.isChecked = true;
-                            break;
+                            if (rCH.transform == enemy.transform && Vector3.Angle(rayCastDir, detect.transform.forward) < LoS.ViewAngle * 0.5f)
+                            {
+                                visibility.IsVisible = true;
+                                visibility.isChecked = true;
+                                break;
+                            }
                         }
                     }
                 }
-            }
-            if (visibility.isChecked)
-            {
-                continue;
+                if (visibility.isChecked)
+                {
+                    continue;
+                }
             }
         }
     }
