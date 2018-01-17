@@ -11,7 +11,9 @@ public class PlayerController : MonoBehaviour
     PlaceableObject buildingObject;
 
     #region ObjectsOfInterest
-    [SerializeField] ParticleSystem OOIPlacementIndicator;
+    [SerializeField] GameObject OOIPlacementOuterIndicator;
+    [SerializeField] GameObject OOIPlacementInnerIndicator;
+    float indicatorRotationAngle = 1f;
     [SerializeField] Transform OOISpawn;
     [SerializeField] GameObject tripWire;
     [SerializeField] GameObject cam;
@@ -24,7 +26,6 @@ public class PlayerController : MonoBehaviour
         playerRB = GetComponent<Rigidbody>();
         isBuilding = false;
         activeOOI = new GameObject();
-        OOIPlacementIndicator.Stop();
 	}
 	
     void Update()
@@ -69,17 +70,16 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetButtonDown("BuildGuard"))
         {
-            OOIPlacementIndicator.Play();
+            OOIPlacementInnerIndicator.GetComponent<Renderer>().enabled = true;
+            OOIPlacementInnerIndicator.GetComponent<Renderer>().enabled = true;
             activeOOI = Instantiate(guard, OOISpawn.position, OOISpawn.rotation, OOISpawn);
         }
         else if (Input.GetButtonDown("BuildCamera"))
         {
-            OOIPlacementIndicator.Play();
             activeOOI = Instantiate(cam, OOISpawn.position, OOISpawn.rotation, OOISpawn);
         }
         else if (Input.GetButtonDown("BuildTripWire"))
         {
-            OOIPlacementIndicator.Play();
             activeOOI = Instantiate(tripWire, OOISpawn.position, OOISpawn.rotation, OOISpawn);
         }
 
@@ -87,21 +87,30 @@ public class PlayerController : MonoBehaviour
         {
             if(!activeOOI.GetComponent<PlaceableObject>().PlaceObject())
             {
-                OOIPlacementIndicator.startColor = Color.red;
+                OOIPlacementInnerIndicator.GetComponent<Renderer>().material.color = Color.red;
+                OOIPlacementOuterIndicator.GetComponent<Renderer>().material.color = Color.red;
             }
             else
             {
-                OOIPlacementIndicator.startColor = Color.green;
+                OOIPlacementInnerIndicator.GetComponent<Renderer>().material.color = Color.green;
+                OOIPlacementOuterIndicator.GetComponent<Renderer>().material.color = Color.green;
             }
         }
         else
         {
-            OOIPlacementIndicator.Stop();
-            if(!activeOOI.GetComponent<PlaceableObject>().objectPlaced)
+            OOIPlacementInnerIndicator.GetComponent<Renderer>().enabled = false;
+            OOIPlacementInnerIndicator.GetComponent<Renderer>().enabled = false;
+            if (!activeOOI.GetComponent<PlaceableObject>().objectPlaced)
             {
                 Destroy(activeOOI);
                 activeOOI = new GameObject();
             }
         }
+    }
+
+    void RotateIndicators()
+    {
+        OOIPlacementInnerIndicator.transform.Rotate(transform.up, indicatorRotationAngle);
+        OOIPlacementOuterIndicator.transform.Rotate(transform.up, -indicatorRotationAngle);
     }
 }
