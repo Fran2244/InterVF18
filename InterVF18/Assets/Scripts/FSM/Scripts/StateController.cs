@@ -12,6 +12,7 @@ public class StateController : MonoBehaviour
 
     public Transform target = null;
 
+    public float closeEnoughtDistance;
 
     private void Awake()
     {
