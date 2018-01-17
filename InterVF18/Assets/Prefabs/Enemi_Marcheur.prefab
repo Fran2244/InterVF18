@@ -63,7 +63,7 @@ GameObject:
   - component: {fileID: 114615236474116654}
   m_Layer: 0
   m_Name: Enemi_Marcheur
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -519,6 +519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visibleIcon: {fileID: 1300952038843634}
+  isChased: 0
   isChecked: 0
 --- !u!114 &114615236474116654
 MonoBehaviour:
@@ -550,8 +551,10 @@ MonoBehaviour:
   navMeshAgent: {fileID: 0}
   wayPoints: []
   nextWayPoint: 0
+  fetchObj: {fileID: 0}
   target: {fileID: 0}
-  closeEnoughtDistance: 0
+  eye: {fileID: 0}
+  isChasing: 0
 --- !u!114 &114838995361186772
 MonoBehaviour:
   m_ObjectHideFlags: 1

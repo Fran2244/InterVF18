@@ -651,7 +651,7 @@ GameObject:
   - component: {fileID: 114644513623619706}
   m_Layer: 0
   m_Name: Enemi_Desactiveur
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2597,6 +2597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visibleIcon: {fileID: 1445489897331638}
+  isChased: 0
   isChecked: 0
 --- !u!114 &114644513623619706
 MonoBehaviour:
@@ -2628,8 +2629,10 @@ MonoBehaviour:
   navMeshAgent: {fileID: 0}
   wayPoints: []
   nextWayPoint: 0
+  fetchObj: {fileID: 0}
   target: {fileID: 0}
-  closeEnoughtDistance: 0
+  eye: {fileID: 0}
+  isChasing: 0
 --- !u!135 &135334554874250004
 SphereCollider:
   m_ObjectHideFlags: 1
