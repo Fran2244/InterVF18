@@ -32,9 +32,9 @@ class CameraBehaviour : MonoBehaviour
     const float minZoom = 10f;
     const float maxZoom = 50f;
     const float camScreenBorderTranslateSpeed = 0.1f;
-    const float camScreenBorderFollowSpeed = 1f;
+    const float camScreenBorderFollowSpeed = 5f;
     const float screenEdgeDetection = 0.95f;
-    const float camFollowPlayerSpeed = 5f;
+    const float camFollowPlayerSpeed = 50f;
     const float maxTimer = 2f;
     #endregion
 
@@ -132,7 +132,7 @@ class CameraBehaviour : MonoBehaviour
     {
         if(currentMode == Modes.FOCUSED)
         {
-            transform.position = Vector3.Lerp(transform.position, player.position + offsetTopDownMode, Time.deltaTime * camFollowPlayerSpeed);
+            transform.position = Vector3.Lerp(transform.position, player.position + offsetTopDownMode, Time.deltaTime * camFollowPlayerSpeed * (1/Vector3.Distance(transform.position, player.position + offsetTopDownMode)));
             relativeWorldPos.transform.position = new Vector3(transform.position.x, player.position.y, transform.position.z + Mathf.Abs(player.position.z - transform.position.z));
         }
         else
@@ -141,7 +141,7 @@ class CameraBehaviour : MonoBehaviour
             {
                 relativeWorldPos.transform.Translate(screenEdgeTranslate.x, 0f, screenEdgeTranslate.y);
             }
-            transform.position = Vector3.Lerp(transform.position, relativeWorldPos.transform.position + offsetTopDownMode, Time.deltaTime * camFollowPlayerSpeed);
+            transform.position = Vector3.Lerp(transform.position, relativeWorldPos.transform.position + offsetTopDownMode, Time.deltaTime * camScreenBorderFollowSpeed);
         }
     }
 
