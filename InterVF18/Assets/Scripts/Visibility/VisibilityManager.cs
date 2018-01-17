@@ -22,6 +22,14 @@ public class VisibilityManager : MonoBehaviour {
 
     [SerializeField]
     LayerMask detectionLayerMask;
+    public LayerMask DetectionLayerMask
+    {
+        get
+        {
+            return detectionLayerMask;
+        }
+    }
+
 
     List<GameObject> visibleObjects;
     public void AddVisibleObject(GameObject obj)
