@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     #region ObjectsOfInterest
     [SerializeField] GameObject OOIPlacementOuterIndicator;
     [SerializeField] GameObject OOIPlacementInnerIndicator;
+    [SerializeField] GameObject OOIPlacementTopIndicator;
     float indicatorRotationAngle = 1f;
     [SerializeField] Transform OOISpawn;
     [SerializeField] GameObject tripWire;
@@ -71,7 +72,8 @@ public class PlayerController : MonoBehaviour
         if(Input.GetButtonDown("BuildGuard"))
         {
             OOIPlacementInnerIndicator.GetComponent<Renderer>().enabled = true;
-            OOIPlacementInnerIndicator.GetComponent<Renderer>().enabled = true;
+            OOIPlacementOuterIndicator.GetComponent<Renderer>().enabled = true;
+            OOIPlacementTopIndicator.GetComponent<Renderer>().enabled = true;
             activeOOI = Instantiate(guard, OOISpawn.position, OOISpawn.rotation, OOISpawn);
         }
         else if (Input.GetButtonDown("BuildCamera"))
@@ -89,17 +91,20 @@ public class PlayerController : MonoBehaviour
             {
                 OOIPlacementInnerIndicator.GetComponent<Renderer>().material.color = Color.red;
                 OOIPlacementOuterIndicator.GetComponent<Renderer>().material.color = Color.red;
+                OOIPlacementTopIndicator.GetComponent<Renderer>().material.color = Color.red;
             }
             else
             {
                 OOIPlacementInnerIndicator.GetComponent<Renderer>().material.color = Color.green;
                 OOIPlacementOuterIndicator.GetComponent<Renderer>().material.color = Color.green;
+                OOIPlacementTopIndicator.GetComponent<Renderer>().material.color = Color.green;
             }
         }
         else
         {
             OOIPlacementInnerIndicator.GetComponent<Renderer>().enabled = false;
-            OOIPlacementInnerIndicator.GetComponent<Renderer>().enabled = false;
+            OOIPlacementOuterIndicator.GetComponent<Renderer>().enabled = false;
+            OOIPlacementTopIndicator.GetComponent<Renderer>().enabled = false;
             if (!activeOOI.GetComponent<PlaceableObject>().objectPlaced)
             {
                 Destroy(activeOOI);
@@ -112,5 +117,6 @@ public class PlayerController : MonoBehaviour
     {
         OOIPlacementInnerIndicator.transform.Rotate(transform.up, indicatorRotationAngle);
         OOIPlacementOuterIndicator.transform.Rotate(transform.up, -indicatorRotationAngle);
+        OOIPlacementTopIndicator.transform.Rotate(transform.up, -indicatorRotationAngle);
     }
 }
