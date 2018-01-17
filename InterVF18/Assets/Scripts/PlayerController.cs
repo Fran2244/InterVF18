@@ -1,13 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using System;
+using System.Collections;
 
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Animator))]
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 10.0f;
     [SerializeField] private float turnSpeed = 1.0f;
+    [SerializeField] private Transform eye;
+    [HideInInspector] public Animator animator;
     private Rigidbody playerRB;
+    [HideInInspector] public bool isChasing = false;
+    private RaycastHit hit;
+    [HideInInspector] public GameObject enemyGameObject = null;
 
     bool isBuilding;
     PlaceableObject buildingObject;
@@ -35,15 +43,65 @@ public class PlayerController : MonoBehaviour
     void Start ()
     {
         playerRB = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
         isBuilding = false;
         activeOOI = new GameObject();
         InitIndicatorsToOff();
+        isChasing = false;
     }
 	
     void Update()
     {
         CheckForObjectOfInterestPlacement();
         RotateIndicators();
+
+        Debug.DrawRay(eye.position, eye.forward.normalized * 2.0f, Color.green);
+
+        if (!isChasing)
+        {
+            if (Physics.SphereCast(eye.position,
+                              0.3f,
+                              eye.forward,
+                              out hit,
+                              2.0f)
+           && hit.collider.CompareTag("Enemy"))
+            {
+                CharacterVisibility enemy = hit.collider.gameObject.GetComponent<CharacterVisibility>();
+                if (enemy && !enemy.isChased)
+                {
+                    enemy.isChased = true;
+
+                    StateController targetState = enemy.gameObject.GetComponent<StateController>();
+                    targetState.currentState = null;
+                    targetState.navMeshAgent.enabled = false;
+                    enemy.gameObject.GetComponent<Collider>().enabled = false;
+                    enemyGameObject = enemy.gameObject;
+                    StartCoroutine(FetchEnemy());
+                }
+            }
+        }
+        else
+        {
+            if (enemyGameObject != null)
+            {
+                enemyGameObject.transform.localPosition = new Vector3(0.15f, 1.3f, 3.75f);
+            }
+        }
+    }
+
+    private IEnumerator FetchEnemy()
+    {
+        animator.SetBool("RightHandUp", true);
+        animator.SetBool("LeftHandUp", true);
+
+        yield return new WaitForSeconds(1.0f);
+
+        if (enemyGameObject != null)
+        {
+            //enemyGameObject.transform.localPosition = new Vector3(0.15f, 1.3f, 3.75f);
+            enemyGameObject.transform.SetParent(gameObject.transform);
+            isChasing = true;
+        }
     }
 
     private void FixedUpdate()
@@ -71,7 +129,8 @@ public class PlayerController : MonoBehaviour
         }
 
         Vector3 movement = move.normalized * moveSpeed * Time.deltaTime;
-        playerRB.MovePosition(playerRB.position + movement);
+        //playerRB.MovePosition(playerRB.position + movement);
+        transform.position += movement;
 
         if (move.magnitude > 0.0f)
         {
