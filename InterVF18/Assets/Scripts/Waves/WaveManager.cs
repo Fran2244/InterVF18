@@ -38,6 +38,11 @@ public class WaveManager : MonoBehaviour {
         {
             StartCoroutine(WaitAndSpawn(waves[i]));
         }
+
+        //TODO: Build level progression
+        LevelProgression.Instance.Build(waves);
+
+
     }
 
     IEnumerator WaitAndSpawn(Wave wave)
