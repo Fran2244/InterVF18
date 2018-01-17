@@ -55,9 +55,7 @@ class PlaceableObject : MonoBehaviour {
         }
         else if(gameObject.tag == "Cam")
         {
-            Debug.Log("asdsaddas");
             hitList = Physics.SphereCastAll(player.position, sphereCastRadius, player.forward, maxCastDistance).ToList();
-            Debug.Log(hitList.Count);
             foreach (RaycastHit hit in hitList)
             { 
                 if(hit.transform.gameObject.layer != LayerMask.NameToLayer("Environement"))
