@@ -27,4 +27,9 @@ public class StateController : MonoBehaviour
             currentState = nextState;
         }
     }
+    public void SetPath(Transform[] path)
+    {
+        wayPoints = path;
+    }
+
 }

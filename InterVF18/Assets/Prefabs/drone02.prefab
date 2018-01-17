@@ -1102,11 +1102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: {fileID: 11400000, guid: aeb92e35e3606e8418c3da42cf46b7f4, type: 2}
   navMeshAgent: {fileID: 0}
-  wayPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  wayPoints: []
   nextWayPoint: 0
 --- !u!114 &114957600540346986
 MonoBehaviour:

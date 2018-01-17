@@ -31,7 +31,10 @@ public class ArrowPath : MonoBehaviour {
 	
 	void Update () {
         offset.x -= Time.deltaTime * scrollSpeed;
-
-        arrow.SetTextureOffset("_MainTex", offset);
+        for (int i = 0; i < lines.Count; i++)
+        {
+            lines[i].material.SetTextureOffset("_MainTex", offset);
+        }
+        
     }
 }
