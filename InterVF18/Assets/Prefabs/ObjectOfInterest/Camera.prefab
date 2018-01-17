@@ -245,9 +245,10 @@ GameObject:
   - component: {fileID: 4835996709665006}
   - component: {fileID: 114770463556230952}
   - component: {fileID: 114341055794041592}
+  - component: {fileID: 114806589156360608}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: Cam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1105,3 +1106,14 @@ MonoBehaviour:
   viewAngle: 60
   viewDistance: 40
   spotLight: {fileID: 108062541860829566}
+--- !u!114 &114806589156360608
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1659297135184118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf0ccc6205a4c8c4bb2212655efebcbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

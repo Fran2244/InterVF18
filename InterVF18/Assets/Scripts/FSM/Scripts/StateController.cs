@@ -10,6 +10,9 @@ public class StateController : MonoBehaviour
     public Transform[] wayPoints;
     [HideInInspector] public int nextWayPoint;
 
+    public Transform target = null;
+
+
     private void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();

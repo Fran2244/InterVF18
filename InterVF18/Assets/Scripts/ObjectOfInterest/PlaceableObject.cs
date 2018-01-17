@@ -5,7 +5,7 @@ using System.Linq;
 
 class PlaceableObject : MonoBehaviour {
 
-    Transform player = GameObject.FindGameObjectWithTag("Player").transform;
+    Transform player = null;
     float sphereCastRadius = 0.5f;
     float maxCastDistance = 1f;
     float minSpaceToPlaceGuard = 1f;
@@ -13,8 +13,12 @@ class PlaceableObject : MonoBehaviour {
     Vector3 camOffset = new Vector3(0f,0.3f,0f);
     List<RaycastHit> hitList = new List<RaycastHit>();
 
-    bool PlaceObject()
+    public bool PlaceObject()
     {
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player").transform;
+        }
         if (gameObject.tag == "Guard")
         {
             hitList = Physics.SphereCastAll(player.position, sphereCastRadius, player.forward, maxCastDistance).ToList();

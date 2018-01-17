@@ -7,9 +7,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float turnSpeed = 1.0f;
     private Rigidbody playerRB;
 
+    [SerializeField]
+    GameObject prefabCamera;
+
+    bool isBuilding;
+    PlaceableObject buildingObject;
+
 	void Start ()
     {
         playerRB = GetComponent<Rigidbody>();
+        isBuilding = false;
 	}
 	
     private void FixedUpdate()
