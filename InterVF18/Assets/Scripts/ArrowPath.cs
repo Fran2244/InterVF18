@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Rendering;
 
 public class ArrowPath : MonoBehaviour {
 
@@ -6,21 +8,30 @@ public class ArrowPath : MonoBehaviour {
 
     Vector2 offset = new Vector2(0, 0);
 
-    Material mat;
+    [SerializeField] Material arrow;
 
-	void Start () {
-        LineRenderer line = GetComponent<LineRenderer>();
-        line.positionCount = transform.childCount;
-        for (int i=0;i< transform.childCount; i++) {
-            line.SetPosition(i, transform.GetChild(i).transform.position);
+    List<LineRenderer> lines = new List<LineRenderer>();
+    
+    void Start () {
+        for (int i=1;i< transform.childCount; i++) {
+            LineRenderer line = transform.GetChild(i).gameObject.AddComponent<LineRenderer>();
+            line.shadowCastingMode = ShadowCastingMode.Off;
+            line.receiveShadows = false;
+            line.motionVectorGenerationMode = MotionVectorGenerationMode.ForceNoMotion;
+            line.material = arrow;
+            line.startWidth = 1;
+            line.endWidth = 1;
+            line.alignment = LineAlignment.Local;
+            line.positionCount = 2;
+            line.SetPosition(0, transform.GetChild(i-1).transform.position);
+            line.SetPosition(1, transform.GetChild(i).transform.position);
+            lines.Add(line);
         }
-        mat = line.material;
     }
 	
 	void Update () {
         offset.x -= Time.deltaTime * scrollSpeed;
 
-        mat.SetTextureOffset("_MainTex", offset);
-
+        arrow.SetTextureOffset("_MainTex", offset);
     }
 }
