@@ -11,4 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57d034937c03c241a73dd8c556f817a, type: 3}
   m_Name: FetchDecision
   m_EditorClassIdentifier: 
-  fetchDistance: 2.5
+  fetchDistance: 2.8
