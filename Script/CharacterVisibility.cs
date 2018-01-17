@@ -21,6 +21,13 @@ public class CharacterVisibility : MonoBehaviour {
             isVisible = value;
             //TODO: Add visibility logic here.
             visibleIcon.SetActive(isVisible);
+            if (isVisible)
+            {
+                VisibilityManager.Instance.AddVisibleObject(gameObject);
+            } else
+            {
+                VisibilityManager.Instance.RemoveVisibleObject(gameObject);
+            }
         }
     }
 

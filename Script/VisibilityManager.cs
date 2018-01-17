@@ -29,6 +29,13 @@ public class VisibilityManager : MonoBehaviour {
         if (!visibleObjects.Contains(obj))
             visibleObjects.Add(obj);
     }
+    public void RemoveVisibleObject(GameObject obj)
+    {
+        if (visibleObjects.Contains(obj)) {
+            visibleObjects.Remove(obj);
+        }
+    }
+
 
     public List<GameObject> VisibleObjects
     {
@@ -37,6 +44,11 @@ public class VisibilityManager : MonoBehaviour {
             return visibleObjects;
         }
 
+    }
+
+    private void Awake()
+    {
+        visibleObjects = new List<GameObject>();   
     }
 
     void LateUpdate()
