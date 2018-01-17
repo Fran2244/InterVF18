@@ -47,19 +47,29 @@ public class LevelProgression : MonoBehaviour {
         int indexColor = 0;
         for (int i = 0; i < waves.Length; ++i)
         {
-            GameObject sticker = Instantiate(prefabSticker, content.transform);
-            ProgressSticker pS = sticker.GetComponent<ProgressSticker>();
-            RectTransform rect = sticker.GetComponent<RectTransform>();
-            int totalEnemy = 0;
-            for (int j = 0; j < waves[i].waveEnemies.Length; ++j) {
-                totalEnemy += waves[i].waveEnemies[j].enemyCount;
+            if (i < waves.Length - 1)
+            {
+                GameObject sticker = Instantiate(prefabSticker, content.transform);
+                ProgressSticker pS = sticker.GetComponent<ProgressSticker>();
+                RectTransform rect = sticker.GetComponent<RectTransform>();
+                Vector2 v2 = rect.sizeDelta;
+                v2 = new Vector2(waves[i+ 1].startTime - waves[i].startTime, v2.y);
+                rect.sizeDelta = v2;
+                pS.Build(i, stickerColor[indexColor]);
+                indexColor++;
+                indexColor = indexColor % stickerColor.Length;
+            } else
+            {
+                GameObject sticker = Instantiate(prefabSticker, content.transform);
+                ProgressSticker pS = sticker.GetComponent<ProgressSticker>();
+                RectTransform rect = sticker.GetComponent<RectTransform>();
+                Vector2 v2 = rect.sizeDelta;
+                v2 = new Vector2(100000f, v2.y);
+                rect.sizeDelta = v2;
+                pS.Build(i, stickerColor[indexColor]);
+                indexColor++;
+                indexColor = indexColor % stickerColor.Length;
             }
-            Vector2 v2 = rect.sizeDelta;
-            v2 = new Vector2((totalEnemy * waves[i].spawnRate) * widthMultiplier, v2.y);
-            rect.sizeDelta = v2;
-            pS.Build(i, stickerColor[indexColor]);
-            indexColor++;
-            indexColor = indexColor % stickerColor.Length;
         }
         startTime = Time.time;
         LayoutRebuilder.ForceRebuildLayoutImmediate(content.GetComponent<RectTransform>());

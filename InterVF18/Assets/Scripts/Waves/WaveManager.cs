@@ -62,6 +62,7 @@ public class WaveManager : MonoBehaviour {
                 Transform[] path = paths[wave.pathIndex].GetPath();
                 enemy.transform.position = path[0].position;
                 yield return new WaitForSeconds(wave.spawnRate);
+
             }
         }
     }
