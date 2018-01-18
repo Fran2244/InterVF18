@@ -22,8 +22,7 @@ public class WaveManager : MonoBehaviour {
     [SerializeField]
     Wave[] waves;
 
-    [SerializeField]
-    EnemyPathj[] paths;
+    public EnemyPathj[] paths;
 
     int[] pathUsed;
 
