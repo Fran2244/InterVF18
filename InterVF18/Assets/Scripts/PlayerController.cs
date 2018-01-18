@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
     int tripCount = 0;
     int guardCount = 0;
     float scaleMultiplier = 3f;
+    bool itemChosen = false;
     #endregion
 
     void Start ()
@@ -150,22 +151,24 @@ public class PlayerController : MonoBehaviour
 
     void CheckForObjectOfInterestPlacement()
     {
-        if(Input.GetButtonDown("BuildGuard"))
+        if(Input.GetButtonDown("BuildGuard") && !itemChosen)
         {
             placeSound[1].Play();
             InitIndicatorsToOn();
             activeOOI = Instantiate(guardDummy, OOISpawn.position, OOISpawn.rotation, transform);
             activeOOI.name = "Guard" + ++guardCount;
+            itemChosen = true;
         }
-        else if (Input.GetButtonDown("BuildCamera"))
+        else if (Input.GetButtonDown("BuildCamera") && !itemChosen)
         {
             placeSound[1].Play();
             InitIndicatorsToOn();
             activeOOI = Instantiate(cam, OOISpawn.position, OOISpawn.rotation, OOISpawn);
             activeOOI.transform.localScale *= scaleMultiplier;
             activeOOI.name = "Cam" + ++camCount;
+            itemChosen = true;
         }
-        else if (Input.GetButtonDown("BuildTripWire"))
+        else if (Input.GetButtonDown("BuildTripWire") && !itemChosen)
         {
             placeSound[1].Play();
             InitIndicatorsToOn();
@@ -173,6 +176,7 @@ public class PlayerController : MonoBehaviour
             activeOOI.transform.localScale *= scaleMultiplier;
             activeOOI.GetComponent<TripWire>().enabled = false;
             activeOOI.name = "trip" + ++tripCount;
+            itemChosen = true;
         }
         if (Input.GetButton("BuildGuard") || Input.GetButton("BuildCamera") || Input.GetButton("BuildTripWire"))
         {
@@ -212,11 +216,13 @@ public class PlayerController : MonoBehaviour
                         Destroy(activeOOI);
                     }
                     activeOOI = null;
+                    itemChosen = false;
                 }
                 else
                 {
                     Destroy(activeOOI);
                     activeOOI = null;
+                    itemChosen = false;
                 }
             }
         }
