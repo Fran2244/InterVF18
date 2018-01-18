@@ -114,7 +114,6 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 move = Vector3.zero;
 
-        Debug.Log(Input.GetAxis("Vertical") + "/" + Input.GetAxis("Horizontal"));
         //if (Input.GetButton("Up"))
         if (Input.GetAxis("Vertical")>0.1f)
         {

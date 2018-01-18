@@ -24,7 +24,7 @@ public class PatrolAction : Action
     {
         if (controller.hasDocuments)
         {
-
+            LifeManager.Instance.LosaALife();
         }
     }
 }

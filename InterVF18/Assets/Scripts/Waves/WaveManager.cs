@@ -26,8 +26,15 @@ public class WaveManager : MonoBehaviour {
 
     int[] pathUsed;
 
+    int waveCount;
+    int enemyCount;
+    bool isStarted;
+
     void Start()
     {
+        isStarted = false;
+        waveCount = 0;
+        enemyCount = 0;
         pathUsed = new int[paths.Length];
         for(int i = 0; i < pathUsed.Length; ++i)
         {
@@ -50,10 +57,12 @@ public class WaveManager : MonoBehaviour {
 
     IEnumerator SpawnNextWave(Wave wave)
     {
+        waveCount++;
         for (int i = 0; i < wave.waveEnemies.Length; i++)
         {
             for (int j = 0; j < wave.waveEnemies[i].enemyCount; j++)
             {
+
                 GameObject enemy = Instantiate(wave.waveEnemies[i].prefab);
                 StateController controller = enemy.GetComponent<StateController>();
                 controller.GetComponent<NavMeshAgent>().enabled = false;
@@ -62,8 +71,8 @@ public class WaveManager : MonoBehaviour {
                 enemy.transform.position = path[0].position;
                 controller.GetComponent<NavMeshAgent>().enabled = true;
                 controller.GetComponent<MoneyValue>().moneyValue = (int)wave.resourcesKill;
+                enemyCount++;
                 yield return new WaitForSeconds(wave.spawnRate);
-
             }
         }
     }

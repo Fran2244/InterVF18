@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LifeManager : MonoBehaviour {
 
@@ -20,6 +21,9 @@ public class LifeManager : MonoBehaviour {
 
     int currentLife;
 
+    [SerializeField]
+    CanvasGroup defeatPanel;
+
 	// Use this for initialization
 	void Start () {
         currentLife = startingLife;
@@ -31,6 +35,19 @@ public class LifeManager : MonoBehaviour {
         if (currentLife <= 0)
         {
             //TODO: Losing logic here.
+            FadePanel(defeatPanel);
         }
     }
+
+    IEnumerator FadePanel(CanvasGroup pan)
+    {
+        float startTime = Time.time;
+        while (pan.alpha < 1.0f)
+        {
+            pan.alpha = Mathf.Lerp(0f, 1f, Time.time - startTime);
+            yield return null;
+        }
+        Time.timeScale = 0.0f;
+    }
+
 }

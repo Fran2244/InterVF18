@@ -20,7 +20,6 @@ public class StateController : MonoBehaviour
     private void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
-        hasDocuments = true;
     }
 
     void Update ()
