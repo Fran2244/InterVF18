@@ -25,6 +25,8 @@ public class PatrolAction : Action
         if (controller.hasDocuments)
         {
             LifeManager.Instance.LosaALife();
+            ObjectManager.Instance.RemoveEnemy(controller.gameObject);
+            Destroy(controller.gameObject);
         }
     }
 }

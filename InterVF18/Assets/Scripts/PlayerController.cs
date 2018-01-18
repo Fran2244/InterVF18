@@ -83,6 +83,7 @@ public class PlayerController : MonoBehaviour
                     targetState.navMeshAgent.enabled = false;
                     enemy.gameObject.GetComponent<Collider>().enabled = false;
                     enemyGameObject = enemy.gameObject;
+                    isChasing = true;
                     StartCoroutine(FetchEnemy());
                 }
             }
@@ -107,7 +108,6 @@ public class PlayerController : MonoBehaviour
         {
             //enemyGameObject.transform.localPosition = new Vector3(0.15f, 1.3f, 3.75f);
             enemyGameObject.transform.SetParent(gameObject.transform);
-            isChasing = true;
         }
     }
 

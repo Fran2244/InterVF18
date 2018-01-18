@@ -36,10 +36,12 @@ public class LifeManager : MonoBehaviour {
 	public void LosaALife()
     {
         currentLife--;
+        txtLifeLeft.text = currentLife.ToString() + " / " + startingLife.ToString();
         if (currentLife <= 0)
         {
             //TODO: Losing logic here.
-            FadePanel(defeatPanel);
+           
+            StartCoroutine(FadePanel(defeatPanel));
         }
     }
 
@@ -51,6 +53,8 @@ public class LifeManager : MonoBehaviour {
             pan.alpha = Mathf.Lerp(0f, 1f, Time.time - startTime);
             yield return null;
         }
+        pan.interactable = true;
+        pan.blocksRaycasts = true;
         Time.timeScale = 0.0f;
     }
 

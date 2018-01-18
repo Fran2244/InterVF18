@@ -84,4 +84,9 @@ public class ObjectManager : MonoBehaviour {
         if (detectors.Contains(detector))
             detectors.Remove(detector);
     }
+    public void RemoveEnemy(GameObject enemy)
+    {
+        if (enemies.Contains(enemy))
+            enemies.Remove(enemy);
+    }
 }

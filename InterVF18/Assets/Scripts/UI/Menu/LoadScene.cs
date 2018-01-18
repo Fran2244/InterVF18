@@ -30,11 +30,11 @@ public class LoadScene : MonoBehaviour {
 
     IEnumerator LoadSceneFade()
     {
-        float startTime = Time.time;
+        float startTime = Time.unscaledTime;
         imgFader.alpha = 0f;
         while (imgFader.alpha < 1.0f)
         {
-            imgFader.alpha = Mathf.Lerp(0f, 1f, Time.time - startTime);
+            imgFader.alpha = Mathf.Lerp(0f, 1f, Time.unscaledTime - startTime);
             yield return null;
         }
 #if (UNITY_EDITOR)
@@ -46,12 +46,13 @@ public class LoadScene : MonoBehaviour {
         {
             obj.alpha = 0f;
         }
-        startTime = Time.time;
+        startTime = Time.unscaledTime;
         while (imgFader.alpha > 0.0f)
         {
-            imgFader.alpha = Mathf.Lerp(1f, 0f, Time.time - startTime);
+            imgFader.alpha = Mathf.Lerp(1f, 0f, Time.unscaledTime - startTime);
             yield return null;
         }
+        Time.timeScale = 1.0f;
         Destroy(rootObj);
     }
 

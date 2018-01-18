@@ -57,9 +57,12 @@ public class CharacterVisibility : MonoBehaviour {
         if (gameObject.tag != "Guard")
         {
             Component[] temp = GetComponentsInChildren<DetectedIndicator>();
-            detectionIndicator = temp[0].gameObject;
-            detectionIndicator.GetComponent<Renderer>().enabled = false;
-            detectionIndicator.transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = false;
+            if (temp.Length > 0)
+            {
+                detectionIndicator = temp[0].gameObject;
+                detectionIndicator.GetComponent<Renderer>().enabled = false;
+                detectionIndicator.transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = false;
+            }
         }
     }
 
