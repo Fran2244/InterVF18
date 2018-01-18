@@ -114,25 +114,32 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 move = Vector3.zero;
 
-        if (Input.GetButton("Up"))
+        Debug.Log(Input.GetAxis("Vertical") + "/" + Input.GetAxis("Horizontal"));
+        //if (Input.GetButton("Up"))
+        if (Input.GetAxis("Vertical")>0.1f)
         {
             move += new Vector3(0.0f, 0.0f, 1.0f);
         }
 
-        if (Input.GetButton("Down"))
+        //if (Input.GetButton("Down"))
+        if (Input.GetAxis("Vertical") < -0.1f)
         {
             move += new Vector3(0.0f, 0.0f, -1.0f);
         }
 
-        if (Input.GetButton("Left"))
+        //if (Input.GetButton("Left"))
+        if (Input.GetAxis("Horizontal") < -0.1f)
         {
             move += new Vector3(-1.0f, 0.0f, 0.0f);
         }
 
-        if (Input.GetButton("Right"))
+        //if (Input.GetButton("Right"))
+        if (Input.GetAxis("Horizontal") > 0.1f)
         {
             move += new Vector3(1.0f, 0.0f, 0.0f);
         }
+
+        Debug.Log(move);
 
         Vector3 movement = move.normalized * moveSpeed * Time.deltaTime;
         //playerRB.MovePosition(playerRB.position + movement);
