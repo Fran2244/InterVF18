@@ -621,6 +621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visibleIcon: {fileID: 1068633869945046}
+  detectionIndicator: {fileID: 1499421130405930}
   isChased: 0
   isChecked: 0
 --- !u!114 &114338441936542260
@@ -654,6 +655,8 @@ MonoBehaviour:
   target: {fileID: 0}
   eye: {fileID: 0}
   isChasing: 0
+  hasDocuments: 0
+  documents: {fileID: 0}
 --- !u!114 &114984872260853642
 MonoBehaviour:
   m_ObjectHideFlags: 1

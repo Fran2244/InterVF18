@@ -11,6 +11,9 @@ public class CharacterVisibility : MonoBehaviour {
     [SerializeField]
     GameObject detectionIndicator;
 
+    bool trackingInProgress = false;
+    float indicatorTimer = 3f;
+
     public bool isChased = false;
 
     bool isTracked;
@@ -58,6 +61,11 @@ public class CharacterVisibility : MonoBehaviour {
     private void Update()
     {
         isChecked = false;
+        if(!trackingInProgress && isTracked && IsVisible)
+        {
+            StartCoroutine(ActivateIndicator());
+        }
+
     }
 
     IEnumerator StopTracking(float timer)
@@ -66,5 +74,12 @@ public class CharacterVisibility : MonoBehaviour {
         isTracked = false;
     }
 
-
+    IEnumerator ActivateIndicator()
+    {
+        detectionIndicator.GetComponent<Renderer>().enabled = true;
+        trackingInProgress = true;
+        yield return new WaitForSeconds(indicatorTimer);
+        detectionIndicator.GetComponent<Renderer>().enabled = false;
+        trackingInProgress = false;
+    }
 }

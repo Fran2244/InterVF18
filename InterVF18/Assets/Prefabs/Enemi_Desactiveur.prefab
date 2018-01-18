@@ -2785,6 +2785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visibleIcon: {fileID: 1445489897331638}
+  detectionIndicator: {fileID: 1567440061449950}
   isChased: 0
   isChecked: 0
 --- !u!114 &114644513623619706
@@ -2821,6 +2822,8 @@ MonoBehaviour:
   target: {fileID: 0}
   eye: {fileID: 0}
   isChasing: 0
+  hasDocuments: 0
+  documents: {fileID: 0}
 --- !u!135 &135334554874250004
 SphereCollider:
   m_ObjectHideFlags: 1
