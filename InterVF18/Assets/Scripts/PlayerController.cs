@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     PlaceableObject buildingObject;
 
     #region ObjectsOfInterest
+    AudioSource[] placeSound;
     [SerializeField] GameObject OOIPlacementOuterIndicator;
     [SerializeField] GameObject OOIPlacementInnerIndicator;
     [SerializeField] GameObject OOIPlacementTopIndicator;
@@ -45,6 +46,7 @@ public class PlayerController : MonoBehaviour
 
     void Start ()
     {
+        placeSound = GetComponents<AudioSource>();
         playerRB = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         isBuilding = false;
@@ -146,12 +148,14 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetButtonDown("BuildGuard"))
         {
+            placeSound[1].Play();
             InitIndicatorsToOn();
             activeOOI = Instantiate(guardDummy, OOISpawn.position, OOISpawn.rotation, transform);
             activeOOI.name = "Guard" + ++guardCount;
         }
         else if (Input.GetButtonDown("BuildCamera"))
         {
+            placeSound[1].Play();
             InitIndicatorsToOn();
             activeOOI = Instantiate(cam, OOISpawn.position, OOISpawn.rotation, OOISpawn);
             activeOOI.transform.localScale *= scaleMultiplier;
@@ -159,6 +163,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetButtonDown("BuildTripWire"))
         {
+            placeSound[1].Play();
             InitIndicatorsToOn();
             activeOOI = Instantiate(tripWire, OOISpawn.position, OOISpawn.rotation, OOISpawn);
             activeOOI.transform.localScale *= scaleMultiplier;
@@ -188,6 +193,7 @@ public class PlayerController : MonoBehaviour
                 if (activeOOI.GetComponent<PlaceableObject>().PlaceObject(false))
                 {
                     activeOOI.GetComponent<PlaceableObject>().PlaceObject(true);
+                    placeSound[0].Play();
                 }
 
                 if (activeOOI.GetComponent<PlaceableObject>().objectPlaced == true)
