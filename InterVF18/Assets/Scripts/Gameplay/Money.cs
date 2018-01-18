@@ -41,7 +41,7 @@
     }
 
     ///// Buy //////
-    static bool Buy(int amount) {
+    static public bool Buy(int amount) {
         return Singleton._Buy(amount);
     }
 
@@ -54,7 +54,7 @@
     }
 
     ///// TestBuy //////
-    static bool TestBuy(int amount) {
+    static public bool TestBuy(int amount) {
         return Singleton._TestBuy(amount);
     }
 
@@ -81,23 +81,23 @@
 
     ///// Camera /////
     static public int cameraPrice { get { return Singleton._priceCamera; } }
-    static bool cameraTestBuy() { return Singleton._cameraTestBuy(); }
+    static public bool cameraTestBuy() { return Singleton._cameraTestBuy(); }
     bool _cameraTestBuy() { return _TestBuy(_priceCamera); }
-    static bool cameraBuy() { return Singleton._cameraBuy(); }
+    static public bool cameraBuy() { return Singleton._cameraBuy(); }
     bool _cameraBuy() { return _Buy(_priceCamera); }
 
     ///// Guard /////
     static public int guardPrice { get { return Singleton._priceGuard; } }
-    static bool guardTestBuy() { return Singleton._guardTestBuy(); }
+    static public bool guardTestBuy() { return Singleton._guardTestBuy(); }
     bool _guardTestBuy() { return _TestBuy(_priceGuard); }
-    static bool guardBuy() { return Singleton._guardBuy(); }
+    static public bool guardBuy() { return Singleton._guardBuy(); }
     bool _guardBuy() { return _Buy(_priceGuard); }
 
     ///// Laser /////
     static public int laserPrice { get { return Singleton._priceLaser; } }
-    static bool laserTestBuy() { return Singleton._laserTestBuy(); }
+    static public bool laserTestBuy() { return Singleton._laserTestBuy(); }
     bool _laserTestBuy() { return _TestBuy(_priceLaser); }
-    static bool laserBuy() { return Singleton._laserBuy(); }
+    static public bool laserBuy() { return Singleton._laserBuy(); }
     bool _laserBuy() { return _Buy(_priceLaser); }
 
 }
