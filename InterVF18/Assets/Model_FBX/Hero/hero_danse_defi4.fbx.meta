@@ -1,0 +1,206 @@
+fileFormatVersion: 2
+guid: 48ebd520f958f16429945ff6c03b9241
+timeCreated: 1516281236
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: avant_bras_d
+    100002: avant_bras_g
+    100004: bras_d
+    100006: bras_d_end
+    100008: bras_d_j
+    100010: bras_g
+    100012: bras_g_j
+    100014: code
+    100016: connect_d_j
+    100018: connect_g_j
+    100020: connection_bras_d
+    100022: connection_bras_g
+    100024: corps
+    100026: corps_grp
+    100028: corps_j
+    100030: cou
+    100032: cou_end_j
+    100034: cou_j
+    100036: doigts_d
+    100038: doigts_g
+    100040: end_bras_g_j
+    100042: epaule_connection_d
+    100044: epaule_connection_g
+    100046: epaule_d
+    100048: epaule_g
+    100050: //RootNode
+    100052: main_d
+    100054: main_g
+    100056: pouce_d
+    100058: pouce_g
+    100060: tete
+    400000: avant_bras_d
+    400002: avant_bras_g
+    400004: bras_d
+    400006: bras_d_end
+    400008: bras_d_j
+    400010: bras_g
+    400012: bras_g_j
+    400014: code
+    400016: connect_d_j
+    400018: connect_g_j
+    400020: connection_bras_d
+    400022: connection_bras_g
+    400024: corps
+    400026: corps_grp
+    400028: corps_j
+    400030: cou
+    400032: cou_end_j
+    400034: cou_j
+    400036: doigts_d
+    400038: doigts_g
+    400040: end_bras_g_j
+    400042: epaule_connection_d
+    400044: epaule_connection_g
+    400046: epaule_d
+    400048: epaule_g
+    400050: //RootNode
+    400052: main_d
+    400054: main_g
+    400056: pouce_d
+    400058: pouce_g
+    400060: tete
+    2300000: avant_bras_d
+    2300002: avant_bras_g
+    2300004: bras_d
+    2300006: bras_g
+    2300008: code
+    2300010: connection_bras_d
+    2300012: connection_bras_g
+    2300014: corps
+    2300016: cou
+    2300018: doigts_d
+    2300020: doigts_g
+    2300022: epaule_connection_d
+    2300024: epaule_connection_g
+    2300026: epaule_d
+    2300028: epaule_g
+    2300030: main_d
+    2300032: main_g
+    2300034: pouce_d
+    2300036: pouce_g
+    2300038: tete
+    3300000: avant_bras_d
+    3300002: avant_bras_g
+    3300004: bras_d
+    3300006: bras_g
+    3300008: code
+    3300010: connection_bras_d
+    3300012: connection_bras_g
+    3300014: corps
+    3300016: cou
+    3300018: doigts_d
+    3300020: doigts_g
+    3300022: epaule_connection_d
+    3300024: epaule_connection_g
+    3300026: epaule_d
+    3300028: epaule_g
+    3300030: main_d
+    3300032: main_g
+    3300034: pouce_d
+    3300036: pouce_g
+    3300038: tete
+    4300000: corps
+    4300002: code
+    4300004: epaule_connection_g
+    4300006: epaule_g
+    4300008: bras_g
+    4300010: connection_bras_g
+    4300012: avant_bras_g
+    4300014: main_g
+    4300016: pouce_g
+    4300018: doigts_g
+    4300020: epaule_connection_d
+    4300022: epaule_d
+    4300024: bras_d
+    4300026: connection_bras_d
+    4300028: avant_bras_d
+    4300030: main_d
+    4300032: pouce_d
+    4300034: doigts_d
+    4300036: cou
+    4300038: tete
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
