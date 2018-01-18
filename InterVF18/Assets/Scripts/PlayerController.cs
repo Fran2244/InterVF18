@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     Color lightRed = new Color(1,0,0,0.5f);
     Color lightGreen = new Color(1, 0, 0, 0.5f);
     float indicatorRotationAngle = 2f;
-    float distGuardFromPlayer = 1f;
+    float distGuardFromPlayer = 2f;
     [SerializeField] Transform OOISpawn;
     [SerializeField] GameObject tripWire;
     [SerializeField] GameObject cam;
@@ -198,7 +198,7 @@ public class PlayerController : MonoBehaviour
                     }
                     if(activeOOI.tag == "Guard")
                     {
-                        GameObject guardInstance = Instantiate(guard, transform.position + transform.forward * distGuardFromPlayer, Quaternion.LookRotation(guardDummy.transform.position - transform.position));
+                        GameObject guardInstance = Instantiate(guard, transform.position + transform.forward * distGuardFromPlayer, transform.rotation);
                         Destroy(activeOOI);
                     }
                     activeOOI = null;

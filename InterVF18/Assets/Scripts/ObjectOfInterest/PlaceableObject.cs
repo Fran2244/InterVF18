@@ -51,7 +51,11 @@ class PlaceableObject : MonoBehaviour {
             }
             else
             {
-                return false;
+                if (objectCanBePlaced)
+                {
+                    objectPlaced = true;
+                }
+                return true;
             }
         }
         else if(gameObject.tag == "Cam")
