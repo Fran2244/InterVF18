@@ -22,10 +22,7 @@ public class LevelProgression : MonoBehaviour {
     GameObject content;
 
     [SerializeField]
-    Color[] stickerColor;
-
-    [SerializeField]
-    GameObject prefabSticker;
+    GameObject[] prefabSticker;
 
     [SerializeField]
     float widthMultiplier;
@@ -44,32 +41,30 @@ public class LevelProgression : MonoBehaviour {
             totalLastWaveEnemies += waves[waves.Length - 1].waveEnemies[i].enemyCount;
         }
         totalWidth = waves[waves.Length - 1].startTime + (totalLastWaveEnemies * waves[waves.Length - 1].spawnRate);
-        int indexColor = 0;
+        int indexPrefabs = 0;
         for (int i = 0; i < waves.Length; ++i)
         {
             if (i < waves.Length - 1)
             {
-                GameObject sticker = Instantiate(prefabSticker, content.transform);
+                GameObject sticker = Instantiate(prefabSticker[indexPrefabs], content.transform);
                 ProgressSticker pS = sticker.GetComponent<ProgressSticker>();
                 RectTransform rect = sticker.GetComponent<RectTransform>();
                 Vector2 v2 = rect.sizeDelta;
-                v2 = new Vector2(waves[i+ 1].startTime - waves[i].startTime, v2.y);
+                v2 = new Vector2((waves[i+ 1].startTime - waves[i].startTime) * widthMultiplier, v2.y);
                 rect.sizeDelta = v2;
-                pS.Build(i, stickerColor[indexColor]);
-                indexColor++;
-                indexColor = indexColor % stickerColor.Length;
+                pS.Build(i);
             } else
             {
-                GameObject sticker = Instantiate(prefabSticker, content.transform);
+                GameObject sticker = Instantiate(prefabSticker[indexPrefabs], content.transform);
                 ProgressSticker pS = sticker.GetComponent<ProgressSticker>();
                 RectTransform rect = sticker.GetComponent<RectTransform>();
                 Vector2 v2 = rect.sizeDelta;
-                v2 = new Vector2(100000f, v2.y);
+                v2 = new Vector2(1000f, v2.y);
                 rect.sizeDelta = v2;
-                pS.Build(i, stickerColor[indexColor]);
-                indexColor++;
-                indexColor = indexColor % stickerColor.Length;
+                pS.Build(i);
             }
+            indexPrefabs++;
+            indexPrefabs = indexPrefabs % prefabSticker.Length;
         }
         startTime = Time.time;
         LayoutRebuilder.ForceRebuildLayoutImmediate(content.GetComponent<RectTransform>());

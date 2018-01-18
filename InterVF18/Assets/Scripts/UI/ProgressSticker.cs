@@ -9,13 +9,9 @@ public class ProgressSticker : MonoBehaviour {
     [SerializeField]
     Text txtWaveEnemies;
 
-    [SerializeField]
-    Image imgColor;
-
-    public void Build(int WaveNumber, Color color)
+    public void Build(int WaveNumber)
     {
-        txtWaveEnemies.text = "Wave #" + WaveNumber.ToString();
-        imgColor.color = color;
+        txtWaveEnemies.text = "Wave #" + (WaveNumber + 1).ToString();
     }
 
 
