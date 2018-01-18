@@ -2,15 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Flame : MonoBehaviour {
+class Flame : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    Transform smoke;
+    float groundHeight;
+
+	void Start()
+    {
+        smoke = transform.Find("Smoke");
+        groundHeight = GameObject.FindGameObjectWithTag("Ground").transform.position.y + 0.1f;
+    }
 	
-	// Update is called once per frame
-	void Update () {
-		
+	void Update ()
+    {
+        smoke.transform.position = new Vector3(smoke.transform.position.x, groundHeight, smoke.transform.position.z);
 	}
 }

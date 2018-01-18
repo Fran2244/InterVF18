@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 4319514043233190}
   - component: {fileID: 198218623578761216}
   - component: {fileID: 199778555370741880}
+  - component: {fileID: 114303483579174724}
   m_Layer: 0
   m_Name: FireBase
   m_TagString: Untagged
@@ -2131,6 +2132,17 @@ MonoBehaviour:
   cycleTimeRandom: 1
   yChangeFixed: 0.2
   yChangeRandom: 0.1
+--- !u!114 &114303483579174724
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1170136100778418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6912eaf1e47f6e148bbfe3561a9efdcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114371584252737502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2229,7 +2241,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1144249365
+  randomSeed: -1751319666
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -5491,14 +5503,14 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 887077543
+  randomSeed: -198828025
   InitialModule:
     serializedVersion: 3
     enabled: 1
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.2
+      scalar: 0.3
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -5539,7 +5551,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 2
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -5956,7 +5968,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 1.5
       mode: 0
       spread: 0
       speed:

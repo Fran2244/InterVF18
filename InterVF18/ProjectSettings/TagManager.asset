@@ -8,6 +8,7 @@ TagManager:
   - Guard
   - TripWire
   - Enemy
+  - Ground
   layers:
   - Default
   - TransparentFX
