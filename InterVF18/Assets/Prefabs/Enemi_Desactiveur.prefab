@@ -2785,7 +2785,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visibleIcon: {fileID: 1445489897331638}
-  detectionIndicator: {fileID: 1567440061449950}
   isChased: 0
   isChecked: 0
 --- !u!114 &114644513623619706

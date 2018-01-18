@@ -10,6 +10,7 @@ class DetectedIndicator : MonoBehaviour {
 	void Start ()
     {
         lowerRing = transform.Find("LowerRing");
+        GetComponent<Renderer>().enabled = false;
 	}
 
     void FixedUpdate()

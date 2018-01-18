@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 33345678585832206}
   - component: {fileID: 23603143647465590}
   - component: {fileID: 95824225312084286}
+  - component: {fileID: 114594285871645238}
   m_Layer: 0
   m_Name: indicateur
   m_TagString: Untagged
@@ -697,6 +698,17 @@ MonoBehaviour:
   visibleIcon: {fileID: 1300952038843634}
   isChased: 0
   isChecked: 0
+--- !u!114 &114594285871645238
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1332987636337382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 540f681502e627740a6d97706eaaca06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114615236474116654
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -731,6 +743,8 @@ MonoBehaviour:
   target: {fileID: 0}
   eye: {fileID: 0}
   isChasing: 0
+  hasDocuments: 0
+  documents: {fileID: 0}
 --- !u!114 &114838995361186772
 MonoBehaviour:
   m_ObjectHideFlags: 1

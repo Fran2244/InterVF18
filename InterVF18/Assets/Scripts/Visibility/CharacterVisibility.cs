@@ -54,14 +54,18 @@ public class CharacterVisibility : MonoBehaviour {
 
     void Awake()
     {
-        detectionIndicator = transform.Find("indicateur").gameObject;
-        detectionIndicator.GetComponent<Renderer>().enabled = false;
+        if (gameObject.tag != "Guard")
+        {
+            Component[] temp = GetComponentsInChildren<DetectedIndicator>();
+            detectionIndicator = temp[0].gameObject;
+            detectionIndicator.GetComponent<Renderer>().enabled = false;
+        }
     }
 
     private void Update()
     {
         isChecked = false;
-        if(!trackingInProgress && isTracked && IsVisible)
+        if(gameObject.tag != "Guard" && !trackingInProgress && isTracked && IsVisible)
         {
             StartCoroutine(ActivateIndicator());
         }
