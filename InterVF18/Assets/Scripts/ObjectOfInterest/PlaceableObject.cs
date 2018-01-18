@@ -14,8 +14,9 @@ class PlaceableObject : MonoBehaviour {
     float maxDistToPlaceTrip = 3.75f;
     float distGuardFromPlayer = 0.5f;
     public bool objectPlaced = false;
-    Vector3 camOffset = new Vector3(0f,0.3f,0f);
+    Vector3 camOffset = new Vector3(0f,2.5f,0f);
     List<RaycastHit> hitList = new List<RaycastHit>();
+    List<RaycastHit> hitList2 = new List<RaycastHit>();
     Transform objectsOfInterestParent;
 
     void Start()
@@ -55,27 +56,28 @@ class PlaceableObject : MonoBehaviour {
         }
         else if(gameObject.tag == "Cam")
         {
+            hitList2.Clear();
             hitList = Physics.SphereCastAll(player.position, sphereCastRadius, player.forward, maxCastDistance).ToList();
-            foreach (RaycastHit hit in hitList)
-            { 
-                if(hit.transform.gameObject.layer != LayerMask.NameToLayer("Environement"))
+            foreach(RaycastHit hit in hitList)
+            {
+                if(hit.transform.gameObject.layer == LayerMask.NameToLayer("Environement"))
                 {
-                    hitList.Remove(hit);
+                    hitList2.Add(hit);
                 }
             }
-            if(hitList.Count == 0)
+            if(hitList2.Count == 0)
             {
                 return false;
             }
 
-            if (hitList.Count > 1)
+            if (hitList2.Count > 1)
             {
                 if (objectCanBePlaced)
                 {
-                    hitList = hitList.OrderBy(x => hitList[0].distance).ToList();
-                    transform.position = hitList[0].point;
+                    hitList2 = hitList2.OrderBy(x => hitList2[0].distance).ToList();
+                    transform.position = hitList2[0].point;
                     transform.Translate(camOffset);
-                    transform.rotation = Quaternion.LookRotation(hitList[0].normal + hitList[1].normal);
+                    transform.rotation = Quaternion.LookRotation(hitList2[0].normal + hitList2[1].normal);
                     transform.SetParent(objectsOfInterestParent);
                     objectPlaced = true;
                 }
@@ -85,8 +87,9 @@ class PlaceableObject : MonoBehaviour {
             {
                 if (objectCanBePlaced)
                 {
-                    transform.position = hitList[0].point;
-                    transform.rotation = Quaternion.LookRotation(hitList[0].normal);
+                    transform.position = hitList2[0].point;
+                    transform.rotation = Quaternion.LookRotation(hitList2[0].normal);
+                    transform.Translate(camOffset);
                     transform.SetParent(objectsOfInterestParent);
                     objectPlaced = true;
                 }

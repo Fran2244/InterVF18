@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
     int camCount = 0;
     int tripCount = 0;
     int guardCount = 0;
+    float scaleMultiplier = 3f;
     #endregion
 
     void Start ()
@@ -150,12 +151,14 @@ public class PlayerController : MonoBehaviour
         {
             InitIndicatorsToOn();
             activeOOI = Instantiate(cam, OOISpawn.position, OOISpawn.rotation, OOISpawn);
+            activeOOI.transform.localScale *= scaleMultiplier;
             activeOOI.name = "Cam" + ++camCount;
         }
         else if (Input.GetButtonDown("BuildTripWire"))
         {
             InitIndicatorsToOn();
             activeOOI = Instantiate(tripWire, OOISpawn.position, OOISpawn.rotation, OOISpawn);
+            activeOOI.transform.localScale *= scaleMultiplier;
             activeOOI.GetComponent<TripWire>().enabled = false;
             activeOOI.name = "trip" + ++tripCount;
         }
