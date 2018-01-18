@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: PlayerLeftHandMask
+  m_Mask: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: corps_grp
+    m_Weight: 0
+  - m_Path: corps_grp/corps
+    m_Weight: 0
+  - m_Path: corps_grp/cou
+    m_Weight: 0
+  - m_Path: corps_grp/cou/tete
+    m_Weight: 0
+  - m_Path: corps_grp/epaule_connection_d
+    m_Weight: 0
+  - m_Path: corps_grp/epaule_connection_d/epaule_d
+    m_Weight: 0
+  - m_Path: corps_grp/epaule_connection_d/epaule_d/bras_d
+    m_Weight: 0
+  - m_Path: corps_grp/epaule_connection_d/epaule_d/bras_d/connection_bras_d
+    m_Weight: 0
+  - m_Path: corps_grp/epaule_connection_d/epaule_d/bras_d/connection_bras_d/avant_bras_d
+    m_Weight: 0
+  - m_Path: corps_grp/epaule_connection_d/epaule_d/bras_d/connection_bras_d/avant_bras_d/main_d
+    m_Weight: 0
+  - m_Path: corps_grp/epaule_connection_d/epaule_d/bras_d/connection_bras_d/avant_bras_d/main_d/doigts_d
+    m_Weight: 0
+  - m_Path: corps_grp/epaule_connection_d/epaule_d/bras_d/connection_bras_d/avant_bras_d/main_d/pouce_d
+    m_Weight: 0
+  - m_Path: corps_grp/epaule_connection_g
+    m_Weight: 1
+  - m_Path: corps_grp/epaule_connection_g/epaule_g
+    m_Weight: 1
+  - m_Path: corps_grp/epaule_connection_g/epaule_g/bras_g
+    m_Weight: 1
+  - m_Path: corps_grp/epaule_connection_g/epaule_g/bras_g/connection_bras_g
+    m_Weight: 1
+  - m_Path: corps_grp/epaule_connection_g/epaule_g/bras_g/connection_bras_g/avant_bras_g
+    m_Weight: 1
+  - m_Path: corps_grp/epaule_connection_g/epaule_g/bras_g/connection_bras_g/avant_bras_g/main_g
+    m_Weight: 1
+  - m_Path: corps_grp/epaule_connection_g/epaule_g/bras_g/connection_bras_g/avant_bras_g/main_g/doigts_g
+    m_Weight: 1
+  - m_Path: corps_grp/epaule_connection_g/epaule_g/bras_g/connection_bras_g/avant_bras_g/main_g/pouce_g
+    m_Weight: 1
+  - m_Path: corps_j
+    m_Weight: 0
+  - m_Path: corps_j/bras_d_j
+    m_Weight: 0
+  - m_Path: corps_j/bras_d_j/connect_d_j
+    m_Weight: 0
+  - m_Path: corps_j/bras_d_j/connect_d_j/bras_d_end
+    m_Weight: 0
+  - m_Path: corps_j/bras_g_j
+    m_Weight: 0
+  - m_Path: corps_j/bras_g_j/connect_g_j
+    m_Weight: 0
+  - m_Path: corps_j/bras_g_j/connect_g_j/end_bras_g_j
+    m_Weight: 0
+  - m_Path: corps_j/cou_j
+    m_Weight: 0
+  - m_Path: corps_j/cou_j/cou_end_j
+    m_Weight: 0
