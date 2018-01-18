@@ -1468,76 +1468,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - startTime: 3
-    spawnRate: 4
+  - startTime: 10
+    spawnRate: 3
     resourcesStart: 10
     resourcesKill: 1
     pathIndex: 0
     waveEnemies:
     - prefab: {fileID: 1395218577199590, guid: c0f3b5fe1baf7c946a67da1be91c409e, type: 2}
       enemyCount: 1
-    - prefab: {fileID: 1395218577199590, guid: c0f3b5fe1baf7c946a67da1be91c409e, type: 2}
-      enemyCount: 1
-    - prefab: {fileID: 1395218577199590, guid: c0f3b5fe1baf7c946a67da1be91c409e, type: 2}
-      enemyCount: 1
   - startTime: 20
-    spawnRate: 4
+    spawnRate: 3
     resourcesStart: 10
     resourcesKill: 1
     pathIndex: 1
     waveEnemies:
     - prefab: {fileID: 1395218577199590, guid: c0f3b5fe1baf7c946a67da1be91c409e, type: 2}
       enemyCount: 1
-    - prefab: {fileID: 1395218577199590, guid: c0f3b5fe1baf7c946a67da1be91c409e, type: 2}
-      enemyCount: 1
-    - prefab: {fileID: 1395218577199590, guid: c0f3b5fe1baf7c946a67da1be91c409e, type: 2}
-      enemyCount: 2
-  - startTime: 40
-    spawnRate: 4
+  - startTime: 30
+    spawnRate: 3
     resourcesStart: 10
     resourcesKill: 1
     pathIndex: 2
     waveEnemies:
     - prefab: {fileID: 1164302322421468, guid: 80b154bd31925b0428364fd18576aeef, type: 2}
       enemyCount: 1
-    - prefab: {fileID: 1395218577199590, guid: c0f3b5fe1baf7c946a67da1be91c409e, type: 2}
-      enemyCount: 2
-    - prefab: {fileID: 1395218577199590, guid: c0f3b5fe1baf7c946a67da1be91c409e, type: 2}
-      enemyCount: 1
-  - startTime: 60
-    spawnRate: 5
-    resourcesStart: 10
-    resourcesKill: 1
-    pathIndex: 3
-    waveEnemies:
-    - prefab: {fileID: 1395218577199590, guid: c0f3b5fe1baf7c946a67da1be91c409e, type: 2}
-      enemyCount: 2
-    - prefab: {fileID: 1164302322421468, guid: 80b154bd31925b0428364fd18576aeef, type: 2}
-      enemyCount: 1
-    - prefab: {fileID: 1395218577199590, guid: c0f3b5fe1baf7c946a67da1be91c409e, type: 2}
-      enemyCount: 1
-  - startTime: 80
-    spawnRate: 6
+  - startTime: 40
+    spawnRate: 3
     resourcesStart: 10
     resourcesKill: 1
     pathIndex: 4
     waveEnemies:
     - prefab: {fileID: 1164302322421468, guid: 80b154bd31925b0428364fd18576aeef, type: 2}
       enemyCount: 1
+  - startTime: 50
+    spawnRate: 3
+    resourcesStart: 10
+    resourcesKill: 1
+    pathIndex: 3
+    waveEnemies:
     - prefab: {fileID: 1164302322421468, guid: 80b154bd31925b0428364fd18576aeef, type: 2}
       enemyCount: 1
     - prefab: {fileID: 1395218577199590, guid: c0f3b5fe1baf7c946a67da1be91c409e, type: 2}
-      enemyCount: 2
-  - startTime: 105
-    spawnRate: 5
+      enemyCount: 1
+  - startTime: 60
+    spawnRate: 3
     resourcesStart: 10
     resourcesKill: 1
     pathIndex: 5
     waveEnemies:
     - prefab: {fileID: 1164302322421468, guid: 80b154bd31925b0428364fd18576aeef, type: 2}
       enemyCount: 2
-  - startTime: 120
-    spawnRate: 5
+  - startTime: 75
+    spawnRate: 3
     resourcesStart: 10
     resourcesKill: 1
     pathIndex: 0
@@ -1546,66 +1528,52 @@ MonoBehaviour:
       enemyCount: 2
     - prefab: {fileID: 1652092121711202, guid: 5bf67e434a85e4d40b6ddf264620091c, type: 2}
       enemyCount: 1
-    - prefab: {fileID: 1395218577199590, guid: c0f3b5fe1baf7c946a67da1be91c409e, type: 2}
-      enemyCount: 2
-  - startTime: 145
-    spawnRate: 5
-    resourcesStart: 10
-    resourcesKill: 1
-    pathIndex: 1
-    waveEnemies:
-    - prefab: {fileID: 1164302322421468, guid: 80b154bd31925b0428364fd18576aeef, type: 2}
-      enemyCount: 1
-    - prefab: {fileID: 1395218577199590, guid: c0f3b5fe1baf7c946a67da1be91c409e, type: 2}
-      enemyCount: 3
-    - prefab: {fileID: 1652092121711202, guid: 5bf67e434a85e4d40b6ddf264620091c, type: 2}
-      enemyCount: 1
-  - startTime: 165
-    spawnRate: 4
+  - startTime: 90
+    spawnRate: 3
     resourcesStart: 10
     resourcesKill: 1
     pathIndex: 2
     waveEnemies:
-    - prefab: {fileID: 1652092121711202, guid: 5bf67e434a85e4d40b6ddf264620091c, type: 2}
-      enemyCount: 2
     - prefab: {fileID: 1164302322421468, guid: 80b154bd31925b0428364fd18576aeef, type: 2}
+      enemyCount: 2
+    - prefab: {fileID: 1652092121711202, guid: 5bf67e434a85e4d40b6ddf264620091c, type: 2}
       enemyCount: 1
-  - startTime: 185
-    spawnRate: 5
+  - startTime: 105
+    spawnRate: 3
     resourcesStart: 10
     resourcesKill: 1
-    pathIndex: 3
+    pathIndex: 4
     waveEnemies:
     - prefab: {fileID: 1395218577199590, guid: c0f3b5fe1baf7c946a67da1be91c409e, type: 2}
       enemyCount: 3
     - prefab: {fileID: 1164302322421468, guid: 80b154bd31925b0428364fd18576aeef, type: 2}
-      enemyCount: 2
+      enemyCount: 1
     - prefab: {fileID: 1652092121711202, guid: 5bf67e434a85e4d40b6ddf264620091c, type: 2}
       enemyCount: 1
-  - startTime: 210
-    spawnRate: 5
+  - startTime: 120
+    spawnRate: 3
     resourcesStart: 10
     resourcesKill: 1
-    pathIndex: 4
-    waveEnemies:
-    - prefab: {fileID: 1618781499252798, guid: f5cdb14894ffe704489e8608a42ea480, type: 2}
-      enemyCount: 2
-  - startTime: 230
-    spawnRate: 5
-    resourcesStart: 10
-    resourcesKill: 1
-    pathIndex: 4
+    pathIndex: 1
     waveEnemies:
     - prefab: {fileID: 1395218577199590, guid: c0f3b5fe1baf7c946a67da1be91c409e, type: 2}
-      enemyCount: 2
+      enemyCount: 8
+  - startTime: 135
+    spawnRate: 3
+    resourcesStart: 10
+    resourcesKill: 1
+    pathIndex: 3
+    waveEnemies:
+    - prefab: {fileID: 1618781499252798, guid: f5cdb14894ffe704489e8608a42ea480, type: 2}
+      enemyCount: 3
+  - startTime: 150
+    spawnRate: 3
+    resourcesStart: 10
+    resourcesKill: 1
+    pathIndex: 5
+    waveEnemies:
     - prefab: {fileID: 1164302322421468, guid: 80b154bd31925b0428364fd18576aeef, type: 2}
-      enemyCount: 1
-    - prefab: {fileID: 1652092121711202, guid: 5bf67e434a85e4d40b6ddf264620091c, type: 2}
-      enemyCount: 2
-    - prefab: {fileID: 1618781499252798, guid: f5cdb14894ffe704489e8608a42ea480, type: 2}
-      enemyCount: 2
-    - prefab: {fileID: 1395218577199590, guid: c0f3b5fe1baf7c946a67da1be91c409e, type: 2}
-      enemyCount: 1
+      enemyCount: 5
   paths:
   - {fileID: 114679154512692734}
   - {fileID: 114804895736389700}
