@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using AI;
 
 [CreateAssetMenu(menuName = "AI/State")]
 public class State : ScriptableObject

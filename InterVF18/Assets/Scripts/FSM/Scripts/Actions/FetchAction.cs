@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using AI;
 
 [CreateAssetMenu(menuName = "AI/Actions/Fetch")]
 public class FetchAction : Action

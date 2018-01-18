@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using AI;
 
 [CreateAssetMenu(menuName = "AI/Actions/Chase")]
 public class ChaseAction : Action {
