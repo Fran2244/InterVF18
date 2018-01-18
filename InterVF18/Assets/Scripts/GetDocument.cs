@@ -18,6 +18,7 @@ public class GetDocument : MonoBehaviour {
             controller.documents = docCopy;
             docCopy.transform.localPosition = Vector3.zero;
             docCopy.GetComponent<Collider>().enabled = false;
+            docCopy.transform.localScale = new Vector3(20f, 20f, 20f);
         }
     }
 }
