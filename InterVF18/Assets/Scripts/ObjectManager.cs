@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ObjectManager : MonoBehaviour {
 
@@ -22,6 +23,9 @@ public class ObjectManager : MonoBehaviour {
     List<GameObject> guards;
     List<GameObject> enemies;
     List<GameObject> detectors;
+
+    [SerializeField]
+    CanvasGroup panelWon;
 
     public List<GameObject> Guards
     {
@@ -88,5 +92,21 @@ public class ObjectManager : MonoBehaviour {
     {
         if (enemies.Contains(enemy))
             enemies.Remove(enemy);
+        if (enemies.Count == 0 && WaveManager.Instance.isFinished == true)
+        {
+            StartCoroutine(GameWon());
+        }
+    }
+    IEnumerator GameWon()
+    {
+        float startTime = Time.unscaledTime;
+        while (panelWon.alpha < 1.0f)
+        {
+            panelWon.alpha = Mathf.Lerp(0f, 1f, Time.unscaledTime - startTime);
+            yield return null;
+        }
+        panelWon.interactable = true;
+        panelWon.blocksRaycasts = true;
+        Time.timeScale = 0.0f;
     }
 }

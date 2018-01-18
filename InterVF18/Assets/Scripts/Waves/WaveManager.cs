@@ -28,7 +28,7 @@ public class WaveManager : MonoBehaviour {
 
     int waveCount;
     int enemyCount;
-    bool isStarted;
+    public bool isFinished;
 
     ArrowPath arrowPath;
 
@@ -36,7 +36,7 @@ public class WaveManager : MonoBehaviour {
     {
         arrowPath = GetComponent<ArrowPath>();
 
-        isStarted = false;
+        isFinished = false;
         waveCount = 0;
         enemyCount = 0;
         pathUsed = new int[paths.Length];
@@ -81,6 +81,10 @@ public class WaveManager : MonoBehaviour {
             }
         }
         arrowPath.HidePath(wave.pathIndex);
+        if (waveCount == waves.Length)
+        {
+            isFinished = true;
+        }
     }
 
 }

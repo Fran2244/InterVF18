@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4631d963952e4e549b6b772d155b90ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panelWon: {fileID: 0}
 --- !u!114 &114542520701040626
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -183,6 +184,8 @@ MonoBehaviour:
   startingLife: 10
   defeatPanel: {fileID: 0}
   txtLifeLeft: {fileID: 0}
+  ppBehavior: {fileID: 0}
+  profile: {fileID: 11400000, guid: f29cc888d2b685b48bad97f3cee0b07b, type: 2}
 --- !u!114 &114941033289926258
 MonoBehaviour:
   m_ObjectHideFlags: 1
