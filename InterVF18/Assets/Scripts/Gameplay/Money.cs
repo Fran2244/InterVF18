@@ -1,7 +1,7 @@
 ﻿public class Money {
 
     ///// Variables /////
-    int _money;
+    int _money = 50;
 
     ///// Singleton /////
     private Money() {
@@ -37,6 +37,18 @@
     bool _Buy(int amount) {
         if (_money >= amount) {
             _money -= amount;
+            return true;
+        } else
+            return false;
+    }
+
+    ///// TestBuy //////
+    static bool TestBuy(int amount) {
+        return Singleton._TestBuy(amount);
+    }
+
+    bool _TestBuy(int amount) {
+        if (_money >= amount) {
             return true;
         } else
             return false;
