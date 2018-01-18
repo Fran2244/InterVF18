@@ -1,15 +1,15 @@
 fileFormatVersion: 2
-guid: 8ce3ca577d8678044bd37830e6213afe
-timeCreated: 1516234775
+guid: 11d3fe0155b542e4dac218b69707a6c2
+timeCreated: 1516237329
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: bande_defilante_0
-    21300002: bande_defilante_1
-    21300004: bande_defilante_2
-    21300006: bande_defilante_3
-    21300008: bande_defilante_4
-    21300010: bande_defilante_5
+    21300000: bande_defilante 1_0
+    21300002: bande_defilante 1_1
+    21300004: bande_defilante 1_2
+    21300006: bande_defilante 1_3
+    21300008: bande_defilante 1_4
+    21300010: bande_defilante 1_5
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -105,11 +105,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bande_defilante_0
+      name: bande_defilante 1_0
       rect:
         serializedVersion: 2
-        x: 38
-        y: 885
+        x: 40
+        y: 883
         width: 541
         height: 176
       alignment: 0
@@ -119,7 +119,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: bande_defilante_1
+      name: bande_defilante 1_1
       rect:
         serializedVersion: 2
         x: 626
@@ -133,7 +133,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: bande_defilante_2
+      name: bande_defilante 1_2
       rect:
         serializedVersion: 2
         x: 40
@@ -147,7 +147,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: bande_defilante_3
+      name: bande_defilante 1_3
       rect:
         serializedVersion: 2
         x: 626
@@ -161,7 +161,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: bande_defilante_4
+      name: bande_defilante 1_4
       rect:
         serializedVersion: 2
         x: 112
@@ -175,7 +175,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: bande_defilante_5
+      name: bande_defilante 1_5
       rect:
         serializedVersion: 2
         x: 580
