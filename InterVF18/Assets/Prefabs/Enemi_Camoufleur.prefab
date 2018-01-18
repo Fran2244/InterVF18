@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4650529193093260}
   - component: {fileID: 33676106293025044}
   - component: {fileID: 23458092273025724}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4530927066927556}
   - component: {fileID: 33872639463487494}
   - component: {fileID: 23147571195626838}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCylinder7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4628994471578852}
   - component: {fileID: 33969760636838376}
   - component: {fileID: 23035560967456124}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pSphere3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 33254044650894160}
   - component: {fileID: 23207342132187700}
   - component: {fileID: 95933475247804302}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LowerRing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4907859855413702}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 23020390578752350}
   - component: {fileID: 95471267833517292}
   - component: {fileID: 114365193158744908}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: indicateur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 114984872260853642}
   - component: {fileID: 114221073606837910}
   - component: {fileID: 114948965971573318}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemi_Camoufleur
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4015514343580600}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DocumentHoldingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 4300894274802596}
   - component: {fileID: 33351515262477650}
   - component: {fileID: 23531185202709222}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pSphere4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 4484086109708112}
   - component: {fileID: 33810065463574398}
   - component: {fileID: 23843686058724094}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCylinder6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -788,7 +788,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1618781499252798}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 2.7
+  m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50

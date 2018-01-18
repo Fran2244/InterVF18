@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4858049212082386}
   - component: {fileID: 33051536808768274}
   - component: {fileID: 23036020063819574}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pSphere3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4274333499747898}
   - component: {fileID: 33147420678924188}
   - component: {fileID: 23469849222353722}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 23603143647465590}
   - component: {fileID: 95824225312084286}
   - component: {fileID: 114594285871645238}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: indicateur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 33743093883394486}
   - component: {fileID: 23991065765684324}
   - component: {fileID: 95977534113315428}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LowerRing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 114615236474116654}
   - component: {fileID: 114065927627780600}
   - component: {fileID: 114199701413427130}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemi_Marcheur
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 4639529266072118}
   - component: {fileID: 33045330971604908}
   - component: {fileID: 23697968054348312}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCylinder2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 4735995047825494}
   - component: {fileID: 33840948126250576}
   - component: {fileID: 23103753417640978}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pSphere4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 4513272129547802}
   - component: {fileID: 33812606907418220}
   - component: {fileID: 23075182426084632}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCylinder1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 4658340255962366}
   - component: {fileID: 33991584361382666}
   - component: {fileID: 23329436265673364}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pSphere1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4177808836176502}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: docHoldingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -832,7 +832,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1395218577199590}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 2.5
+  m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50

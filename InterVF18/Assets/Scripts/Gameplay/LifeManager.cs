@@ -24,9 +24,13 @@ public class LifeManager : MonoBehaviour {
     [SerializeField]
     CanvasGroup defeatPanel;
 
+    [SerializeField]
+    Text txtLifeLeft;
+
 	// Use this for initialization
 	void Start () {
         currentLife = startingLife;
+        txtLifeLeft.text = currentLife.ToString() + " / " + startingLife.ToString();
 	}
 	
 	public void LosaALife()

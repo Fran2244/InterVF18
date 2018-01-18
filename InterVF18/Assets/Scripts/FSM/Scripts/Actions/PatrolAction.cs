@@ -14,7 +14,7 @@ public class PatrolAction : Action
             if (controller.navMeshAgent.remainingDistance <= controller.navMeshAgent.stoppingDistance && !controller.navMeshAgent.pathPending)
             {
                 controller.nextWayPoint = (controller.nextWayPoint + 1);
-                if (controller.nextWayPoint >= controller.wayPoints.Length)
+                if (controller.nextWayPoint >= controller.wayPoints.Length - 1)
                     CleanObject(controller);
             }
         }
