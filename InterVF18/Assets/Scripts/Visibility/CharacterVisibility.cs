@@ -59,6 +59,7 @@ public class CharacterVisibility : MonoBehaviour {
             Component[] temp = GetComponentsInChildren<DetectedIndicator>();
             detectionIndicator = temp[0].gameObject;
             detectionIndicator.GetComponent<Renderer>().enabled = false;
+            detectionIndicator.transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = false;
         }
     }
 
@@ -81,9 +82,11 @@ public class CharacterVisibility : MonoBehaviour {
     IEnumerator ActivateIndicator()
     {
         detectionIndicator.GetComponent<Renderer>().enabled = true;
+        detectionIndicator.transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = true;
         trackingInProgress = true;
         yield return new WaitForSeconds(indicatorTimer);
         detectionIndicator.GetComponent<Renderer>().enabled = false;
+        detectionIndicator.transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = false;
         trackingInProgress = false;
     }
 }
