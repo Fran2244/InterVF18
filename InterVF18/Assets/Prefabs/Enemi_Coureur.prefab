@@ -126,7 +126,8 @@ GameObject:
   - component: {fileID: 114930048444946320}
   - component: {fileID: 114306944209541362}
   - component: {fileID: 114901919175509332}
-  - component: {fileID: 114378878800279678}
+  - component: {fileID: 114020391560570422}
+  - component: {fileID: 114607163763292338}
   m_Layer: 0
   m_Name: Enemi_Coureur
   m_TagString: Enemy
@@ -1285,6 +1286,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114020391560570422
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1164302322421468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45991ed13d10bf04f91f1506cc2fb5ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  docHoldingPoint: {fileID: 4892909672287782}
 --- !u!114 &114306944209541362
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1308,7 +1321,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 540f681502e627740a6d97706eaaca06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  docHoldingPoint: {fileID: 4892909672287782}
+--- !u!114 &114607163763292338
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1164302322421468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59a0844e697a4f845ab4c155e77184c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyValue: 0
 --- !u!114 &114901919175509332
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1357,7 +1381,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visibleIcon: {fileID: 1593311728874052}
-  detectionIndicator: {fileID: 0}
   isChased: 0
   isChecked: 0
 --- !u!135 &135673507453289088

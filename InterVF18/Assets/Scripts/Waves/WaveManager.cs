@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 public class WaveManager : MonoBehaviour {
 
     #region Singleton
@@ -37,8 +37,6 @@ public class WaveManager : MonoBehaviour {
         {
             StartCoroutine(WaitAndSpawn(waves[i]));
         }
-
-        //TODO: Build level progression
         LevelProgression.Instance.Build(waves);
 
 
@@ -57,9 +55,13 @@ public class WaveManager : MonoBehaviour {
             for (int j = 0; j < wave.waveEnemies[i].enemyCount; j++)
             {
                 GameObject enemy = Instantiate(wave.waveEnemies[i].prefab);
-                enemy.GetComponent<StateController>().wayPoints = paths[wave.pathIndex].GetPath();
+                StateController controller = enemy.GetComponent<StateController>();
+                controller.GetComponent<NavMeshAgent>().enabled = false;
+                controller.wayPoints = paths[wave.pathIndex].GetPath();
                 Transform[] path = paths[wave.pathIndex].GetPath();
                 enemy.transform.position = path[0].position;
+                controller.GetComponent<NavMeshAgent>().enabled = true;
+                controller.GetComponent<MoneyValue>().moneyValue = (int)wave.resourcesKill;
                 yield return new WaitForSeconds(wave.spawnRate);
 
             }

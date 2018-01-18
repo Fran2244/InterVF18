@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 114838995361186772}
   - component: {fileID: 114615236474116654}
   - component: {fileID: 114065927627780600}
+  - component: {fileID: 114199701413427130}
   m_Layer: 0
   m_Name: Enemi_Marcheur
   m_TagString: Enemy
@@ -738,9 +739,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visibleIcon: {fileID: 1300952038843634}
-  detectionIndicator: {fileID: 0}
   isChased: 0
   isChecked: 0
+--- !u!114 &114199701413427130
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1395218577199590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59a0844e697a4f845ab4c155e77184c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyValue: 0
 --- !u!114 &114594285871645238
 MonoBehaviour:
   m_ObjectHideFlags: 1

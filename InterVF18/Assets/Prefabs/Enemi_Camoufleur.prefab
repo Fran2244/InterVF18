@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 114729503489129618}
   - component: {fileID: 114984872260853642}
   - component: {fileID: 114221073606837910}
+  - component: {fileID: 114948965971573318}
   m_Layer: 0
   m_Name: Enemi_Camoufleur
   m_TagString: Enemy
@@ -681,7 +682,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visibleIcon: {fileID: 1068633869945046}
-  detectionIndicator: {fileID: 0}
   isChased: 0
   isChecked: 0
 --- !u!114 &114221073606837910
@@ -740,6 +740,18 @@ MonoBehaviour:
   isChasing: 0
   hasDocuments: 0
   documents: {fileID: 0}
+--- !u!114 &114948965971573318
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1618781499252798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59a0844e697a4f845ab4c155e77184c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyValue: 0
 --- !u!114 &114984872260853642
 MonoBehaviour:
   m_ObjectHideFlags: 1

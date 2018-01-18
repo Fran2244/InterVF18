@@ -58,6 +58,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1988556068695584
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4721639754695318}
+  - component: {fileID: 114542520701040626}
+  m_Layer: 0
+  m_Name: LifeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &4011457625055812
 Transform:
   m_ObjectHideFlags: 1
@@ -84,6 +100,19 @@ Transform:
   m_Father: {fileID: 4806239554066300}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4721639754695318
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1988556068695584}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4806239554066300}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4806239554066300
 Transform:
   m_ObjectHideFlags: 1
@@ -96,6 +125,7 @@ Transform:
   m_Children:
   - {fileID: 4011457625055812}
   - {fileID: 4433068151197174}
+  - {fileID: 4721639754695318}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -110,6 +140,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4631d963952e4e549b6b772d155b90ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114542520701040626
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1988556068695584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0548a18c4d17c0488c546945339b16a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingLife: 10
 --- !u!114 &114941033289926258
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -121,7 +163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a2f51783cf476a4e99886234db97e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prisonPos: {fileID: 0}
+  prisons: []
+  coffres: []
   guardChaseState: {fileID: 11400000, guid: ca181db5d9977a946857544e653c2104, type: 2}
   documents: {fileID: 1227106523771506, guid: 3c20f1c362f258a43ab05e8bf76bad22, type: 2}
   originalDocuments: {fileID: 1327899197639946, guid: 730fb7b242eed9a44b80b65cc1c1e598,

@@ -687,6 +687,7 @@ GameObject:
   - component: {fileID: 114414558450220044}
   - component: {fileID: 114644513623619706}
   - component: {fileID: 114453185717794210}
+  - component: {fileID: 114727606255465464}
   m_Layer: 0
   m_Name: Enemi_Desactiveur
   m_TagString: Enemy
@@ -2815,7 +2816,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visibleIcon: {fileID: 1445489897331638}
-  detectionIndicator: {fileID: 0}
   isChased: 0
   isChecked: 0
 --- !u!114 &114453185717794210
@@ -2845,6 +2845,18 @@ MonoBehaviour:
   cycleTimeRandom: 1.5
   yChangeFixed: 0.2
   yChangeRandom: 0.1
+--- !u!114 &114727606255465464
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1652092121711202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59a0844e697a4f845ab4c155e77184c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyValue: 0
 --- !u!114 &114925320451611250
 MonoBehaviour:
   m_ObjectHideFlags: 1
