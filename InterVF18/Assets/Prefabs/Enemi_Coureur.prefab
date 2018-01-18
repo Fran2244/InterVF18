@@ -45,6 +45,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1100306616967640
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4892909672287782}
+  m_Layer: 0
+  m_Name: docHoldingPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1114732921115728
 GameObject:
   m_ObjectHideFlags: 1
@@ -111,6 +126,7 @@ GameObject:
   - component: {fileID: 114930048444946320}
   - component: {fileID: 114306944209541362}
   - component: {fileID: 114901919175509332}
+  - component: {fileID: 114378878800279678}
   m_Layer: 0
   m_Name: Enemi_Coureur
   m_TagString: Enemy
@@ -586,6 +602,19 @@ Transform:
   m_Father: {fileID: 4780193763256356}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4892909672287782
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1100306616967640}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.69, y: 0.05, z: 2.56}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4935388259378784}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4935388259378784
 Transform:
   m_ObjectHideFlags: 1
@@ -599,6 +628,7 @@ Transform:
   - {fileID: 4780193763256356}
   - {fileID: 4517136796969248}
   - {fileID: 4048293788124248}
+  - {fileID: 4892909672287782}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1278,6 +1308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 540f681502e627740a6d97706eaaca06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  docHoldingPoint: {fileID: 4892909672287782}
 --- !u!114 &114901919175509332
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1326,6 +1357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visibleIcon: {fileID: 1593311728874052}
+  detectionIndicator: {fileID: 0}
   isChased: 0
   isChecked: 0
 --- !u!135 &135673507453289088

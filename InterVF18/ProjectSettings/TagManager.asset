@@ -9,6 +9,7 @@ TagManager:
   - TripWire
   - Enemy
   - Ground
+  - Document
   layers:
   - Default
   - TransparentFX
