@@ -1,6 +1,6 @@
 ﻿public class Money {
     ///// Constants /////
-    const int moneyStart = 50;
+    const int moneyStart = 5000;
     const int priceCamera = 10;
     const int priceCameraIncrease = 1;
     const int priceGuard = 10;
