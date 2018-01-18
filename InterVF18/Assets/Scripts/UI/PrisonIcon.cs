@@ -20,7 +20,6 @@ class PrisonIcon : MonoBehaviour {
 
 	void Update ()
     {
-        Debug.Log(Mathf.Sin(Time.time* speed));
         transform.position = new Vector3(transform.position.x, originalVetical += Mathf.Sin(Time.time * sinMultiplier) * speed, transform.position.z);
         bgLight.intensity += Mathf.Sin(Time.time * sinMultiplier) * lightMultiplier;
         transform.LookAt(cam.position);
