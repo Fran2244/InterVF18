@@ -33,98 +33,121 @@ class PlaceableObject : MonoBehaviour {
         }
         if (gameObject.tag == "Guard")
         {
-            RaycastHit hit;
-            if (Physics.Raycast(player.position, player.forward, out hit))
+            if (Money.money >= Money.guardPrice)
             {
-                if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Environement") && hit.distance > minSpaceToPlaceGuard)
+                RaycastHit hit;
+                if (Physics.Raycast(player.position, player.forward, out hit))
+                {
+                    if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Environement") && hit.distance > minSpaceToPlaceGuard)
+                    {
+                        if (objectCanBePlaced)
+                        {
+                            Money.guardBuy();
+                            objectPlaced = true;
+                        }
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
                 {
                     if (objectCanBePlaced)
                     {
+                        Money.guardBuy();
+                        objectPlaced = true;
+                    }
+                    return true;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else if (gameObject.tag == "Cam")
+        {
+            if (Money.money >= Money.cameraPrice)
+            {
+                hitList2.Clear();
+                hitList = Physics.SphereCastAll(player.position, sphereCastRadius, player.forward, maxCastDistance).ToList();
+                foreach (RaycastHit hit in hitList)
+                {
+                    if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Environement"))
+                    {
+                        hitList2.Add(hit);
+                    }
+                }
+                if (hitList2.Count == 0)
+                {
+                    return false;
+                }
+
+                if (hitList2.Count > 1)
+                {
+                    if (objectCanBePlaced)
+                    {
+                        hitList2 = hitList2.OrderBy(x => hitList2[0].distance).ToList();
+                        transform.position = hitList2[0].point;
+                        transform.Translate(camOffset);
+                        transform.rotation = Quaternion.LookRotation(hitList2[0].normal + hitList2[1].normal);
+                        transform.SetParent(objectsOfInterestParent);
+                        Money.cameraBuy();
                         objectPlaced = true;
                     }
                     return true;
                 }
                 else
                 {
-                    return false;
+                    if (objectCanBePlaced)
+                    {
+                        transform.position = hitList2[0].point;
+                        transform.rotation = Quaternion.LookRotation(hitList2[0].normal);
+                        transform.Translate(camOffset);
+                        transform.SetParent(objectsOfInterestParent);
+                        Money.cameraBuy();
+                        objectPlaced = true;
+                    }
+                    return true;
                 }
             }
             else
-            {
-                if (objectCanBePlaced)
-                {
-                    objectPlaced = true;
-                }
-                return true;
-            }
-        }
-        else if(gameObject.tag == "Cam")
-        {
-            hitList2.Clear();
-            hitList = Physics.SphereCastAll(player.position, sphereCastRadius, player.forward, maxCastDistance).ToList();
-            foreach(RaycastHit hit in hitList)
-            {
-                if(hit.transform.gameObject.layer == LayerMask.NameToLayer("Environement"))
-                {
-                    hitList2.Add(hit);
-                }
-            }
-            if(hitList2.Count == 0)
             {
                 return false;
-            }
-
-            if (hitList2.Count > 1)
-            {
-                if (objectCanBePlaced)
-                {
-                    hitList2 = hitList2.OrderBy(x => hitList2[0].distance).ToList();
-                    transform.position = hitList2[0].point;
-                    transform.Translate(camOffset);
-                    transform.rotation = Quaternion.LookRotation(hitList2[0].normal + hitList2[1].normal);
-                    transform.SetParent(objectsOfInterestParent);
-                    objectPlaced = true;
-                }
-                return true;
-            }
-            else
-            {
-                if (objectCanBePlaced)
-                {
-                    transform.position = hitList2[0].point;
-                    transform.rotation = Quaternion.LookRotation(hitList2[0].normal);
-                    transform.Translate(camOffset);
-                    transform.SetParent(objectsOfInterestParent);
-                    objectPlaced = true;
-                }
-                return true;
             }
         }
         else if (gameObject.tag == "TripWire")
         {
-            RaycastHit hit;
-            if(Physics.Raycast(player.position, player.forward, out hit))
+            if (Money.money >= Money.laserPrice)
             {
-                if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Environement") && hit.distance < maxDistToPlaceTrip)
+                RaycastHit hit;
+                if (Physics.Raycast(player.position, player.forward, out hit))
                 {
-                    if (objectCanBePlaced)
+                    if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Environement") && hit.distance < maxDistToPlaceTrip)
                     {
-                        transform.position = hit.point;
-                        transform.rotation = Quaternion.LookRotation(hit.normal);
-                        transform.SetParent(objectsOfInterestParent);
-                        objectPlaced = true;
+                        if (objectCanBePlaced)
+                        {
+                            transform.position = hit.point;
+                            transform.rotation = Quaternion.LookRotation(hit.normal);
+                            transform.SetParent(objectsOfInterestParent);
+                            Money.laserBuy();
+                            objectPlaced = true;
+                        }
+                        return true;
                     }
-                    return true;
+                    else
+                    {
+                        return false;
+                    }
                 }
                 else
                 {
                     return false;
                 }
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
         return false;
     }
