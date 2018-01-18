@@ -1470,7 +1470,7 @@ MonoBehaviour:
   waves:
   - startTime: 10
     spawnRate: 3
-    resourcesStart: 10
+    resourcesStart: 5
     resourcesKill: 1
     pathIndex: 0
     waveEnemies:
@@ -1478,7 +1478,7 @@ MonoBehaviour:
       enemyCount: 1
   - startTime: 20
     spawnRate: 3
-    resourcesStart: 10
+    resourcesStart: 5
     resourcesKill: 1
     pathIndex: 1
     waveEnemies:
@@ -1486,7 +1486,7 @@ MonoBehaviour:
       enemyCount: 1
   - startTime: 30
     spawnRate: 3
-    resourcesStart: 10
+    resourcesStart: 5
     resourcesKill: 1
     pathIndex: 2
     waveEnemies:
@@ -1494,7 +1494,7 @@ MonoBehaviour:
       enemyCount: 1
   - startTime: 40
     spawnRate: 3
-    resourcesStart: 10
+    resourcesStart: 5
     resourcesKill: 1
     pathIndex: 4
     waveEnemies:
@@ -1502,7 +1502,7 @@ MonoBehaviour:
       enemyCount: 1
   - startTime: 50
     spawnRate: 3
-    resourcesStart: 10
+    resourcesStart: 5
     resourcesKill: 1
     pathIndex: 3
     waveEnemies:
@@ -1512,7 +1512,7 @@ MonoBehaviour:
       enemyCount: 1
   - startTime: 60
     spawnRate: 3
-    resourcesStart: 10
+    resourcesStart: 5
     resourcesKill: 1
     pathIndex: 5
     waveEnemies:
@@ -1520,7 +1520,7 @@ MonoBehaviour:
       enemyCount: 2
   - startTime: 75
     spawnRate: 3
-    resourcesStart: 10
+    resourcesStart: 5
     resourcesKill: 1
     pathIndex: 0
     waveEnemies:
@@ -1530,7 +1530,7 @@ MonoBehaviour:
       enemyCount: 1
   - startTime: 90
     spawnRate: 3
-    resourcesStart: 10
+    resourcesStart: 5
     resourcesKill: 1
     pathIndex: 2
     waveEnemies:
@@ -1540,7 +1540,7 @@ MonoBehaviour:
       enemyCount: 1
   - startTime: 105
     spawnRate: 3
-    resourcesStart: 10
+    resourcesStart: 5
     resourcesKill: 1
     pathIndex: 4
     waveEnemies:
@@ -1552,7 +1552,7 @@ MonoBehaviour:
       enemyCount: 1
   - startTime: 120
     spawnRate: 3
-    resourcesStart: 10
+    resourcesStart: 5
     resourcesKill: 1
     pathIndex: 1
     waveEnemies:
@@ -1568,7 +1568,7 @@ MonoBehaviour:
       enemyCount: 3
   - startTime: 150
     spawnRate: 3
-    resourcesStart: 10
+    resourcesStart: 5
     resourcesKill: 1
     pathIndex: 5
     waveEnemies:
