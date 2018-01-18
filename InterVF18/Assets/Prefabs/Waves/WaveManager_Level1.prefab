@@ -1557,7 +1557,7 @@ MonoBehaviour:
     pathIndex: 1
     waveEnemies:
     - prefab: {fileID: 1395218577199590, guid: c0f3b5fe1baf7c946a67da1be91c409e, type: 2}
-      enemyCount: 8
+      enemyCount: 6
   - startTime: 135
     spawnRate: 3
     resourcesStart: 10
@@ -1565,7 +1565,7 @@ MonoBehaviour:
     pathIndex: 3
     waveEnemies:
     - prefab: {fileID: 1618781499252798, guid: f5cdb14894ffe704489e8608a42ea480, type: 2}
-      enemyCount: 3
+      enemyCount: 2
   - startTime: 150
     spawnRate: 3
     resourcesStart: 5
@@ -1573,7 +1573,71 @@ MonoBehaviour:
     pathIndex: 5
     waveEnemies:
     - prefab: {fileID: 1164302322421468, guid: 80b154bd31925b0428364fd18576aeef, type: 2}
-      enemyCount: 5
+      enemyCount: 3
+  - startTime: 165
+    spawnRate: 3
+    resourcesStart: 5
+    resourcesKill: 1
+    pathIndex: 0
+    waveEnemies:
+    - prefab: {fileID: 1164302322421468, guid: 80b154bd31925b0428364fd18576aeef, type: 2}
+      enemyCount: 2
+    - prefab: {fileID: 1618781499252798, guid: f5cdb14894ffe704489e8608a42ea480, type: 2}
+      enemyCount: 1
+    - prefab: {fileID: 1652092121711202, guid: 5bf67e434a85e4d40b6ddf264620091c, type: 2}
+      enemyCount: 2
+  - startTime: 180
+    spawnRate: 3
+    resourcesStart: 5
+    resourcesKill: 1
+    pathIndex: 1
+    waveEnemies:
+    - prefab: {fileID: 1395218577199590, guid: c0f3b5fe1baf7c946a67da1be91c409e, type: 2}
+      enemyCount: 3
+    - prefab: {fileID: 1164302322421468, guid: 80b154bd31925b0428364fd18576aeef, type: 2}
+      enemyCount: 3
+  - startTime: 195
+    spawnRate: 3
+    resourcesStart: 5
+    resourcesKill: 1
+    pathIndex: 2
+    waveEnemies:
+    - prefab: {fileID: 1652092121711202, guid: 5bf67e434a85e4d40b6ddf264620091c, type: 2}
+      enemyCount: 2
+    - prefab: {fileID: 1618781499252798, guid: f5cdb14894ffe704489e8608a42ea480, type: 2}
+      enemyCount: 2
+    - prefab: {fileID: 1395218577199590, guid: c0f3b5fe1baf7c946a67da1be91c409e, type: 2}
+      enemyCount: 3
+  - startTime: 210
+    spawnRate: 3
+    resourcesStart: 5
+    resourcesKill: 1
+    pathIndex: 4
+    waveEnemies:
+    - prefab: {fileID: 1395218577199590, guid: c0f3b5fe1baf7c946a67da1be91c409e, type: 2}
+      enemyCount: 2
+    - prefab: {fileID: 1618781499252798, guid: f5cdb14894ffe704489e8608a42ea480, type: 2}
+      enemyCount: 1
+    - prefab: {fileID: 1652092121711202, guid: 5bf67e434a85e4d40b6ddf264620091c, type: 2}
+      enemyCount: 1
+    - prefab: {fileID: 1164302322421468, guid: 80b154bd31925b0428364fd18576aeef, type: 2}
+      enemyCount: 2
+  - startTime: 225
+    spawnRate: 3
+    resourcesStart: 5
+    resourcesKill: 1
+    pathIndex: 3
+    waveEnemies:
+    - prefab: {fileID: 1395218577199590, guid: c0f3b5fe1baf7c946a67da1be91c409e, type: 2}
+      enemyCount: 8
+  - startTime: 240
+    spawnRate: 3
+    resourcesStart: 5
+    resourcesKill: 1
+    pathIndex: 5
+    waveEnemies:
+    - prefab: {fileID: 1164302322421468, guid: 80b154bd31925b0428364fd18576aeef, type: 2}
+      enemyCount: 6
   paths:
   - {fileID: 114679154512692734}
   - {fileID: 114804895736389700}
