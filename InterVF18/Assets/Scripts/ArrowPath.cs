@@ -12,6 +12,7 @@ public class ArrowPath : MonoBehaviour {
 
     List<GameObject> chemins = new List<GameObject>();
     List<LineRenderer> lines = new List<LineRenderer>();
+    List<int> activeCount = new List<int>();
 
     private bool isActive = false;
     public bool IsActive {
@@ -26,6 +27,7 @@ public class ArrowPath : MonoBehaviour {
         for (int i = 0; i < wm.paths.Length; i++) {
             GameObject chemin = new GameObject(); chemin.transform.parent = flèches.transform; chemin.name = "Chemin" + i;
             chemins.Add(chemin);
+            activeCount.Add(0);
 
             Transform[] path = wm.paths[i].GetPath();
             for (int j = 1; j < path.Length; j++) {
@@ -46,6 +48,7 @@ public class ArrowPath : MonoBehaviour {
 
                 lines.Add(line);
             }
+            chemin.SetActive(false);
         }
     }
 	
@@ -55,7 +58,16 @@ public class ArrowPath : MonoBehaviour {
             lines[i].material.SetTextureOffset("_MainTex", offset);
     }
 
-    public void ShowPath(int path,bool visible) {
-        chemins[path].SetActive(visible);
+    public void ShowPath(int path) {
+        Debug.Log(path);
+        if (activeCount[path]==0)
+            chemins[path].SetActive(true);
+        activeCount[path]++;
+    }
+
+    public void HidePath(int path) {
+        activeCount[path]--;
+        if (activeCount[path] == 0)
+            chemins[path].SetActive(false);
     }
 }

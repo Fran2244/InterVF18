@@ -30,8 +30,12 @@ public class WaveManager : MonoBehaviour {
     int enemyCount;
     bool isStarted;
 
+    ArrowPath arrowPath;
+
     void Start()
     {
+        arrowPath = GetComponent<ArrowPath>();
+
         isStarted = false;
         waveCount = 0;
         enemyCount = 0;
@@ -57,6 +61,7 @@ public class WaveManager : MonoBehaviour {
 
     IEnumerator SpawnNextWave(Wave wave)
     {
+        arrowPath.ShowPath(wave.pathIndex);
         waveCount++;
         for (int i = 0; i < wave.waveEnemies.Length; i++)
         {
@@ -75,6 +80,7 @@ public class WaveManager : MonoBehaviour {
                 yield return new WaitForSeconds(wave.spawnRate);
             }
         }
+        arrowPath.HidePath(wave.pathIndex);
     }
 
 }
