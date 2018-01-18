@@ -59,7 +59,6 @@ public class ArrowPath : MonoBehaviour {
     }
 
     public void ShowPath(int path) {
-        Debug.Log(path);
         if (activeCount[path]==0)
             chemins[path].SetActive(true);
         activeCount[path]++;
