@@ -10,7 +10,7 @@ public class ChaseAction : Action {
     {
         if (controller.target != null)
         {
-            controller.navMeshAgent.speed = controller.navMeshAgent.speed * 2;
+            //controller.navMeshAgent.speed = controller.navMeshAgent.speed * 2;
         }
     }
 
@@ -29,7 +29,7 @@ public class ChaseAction : Action {
     {
         if (controller.target != null)
         {
-            controller.navMeshAgent.speed = controller.navMeshAgent.speed / 2;
+            //controller.navMeshAgent.speed = controller.navMeshAgent.speed / 2;
         }
     }
 }

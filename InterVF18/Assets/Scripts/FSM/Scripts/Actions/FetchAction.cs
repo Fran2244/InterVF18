@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using AI;
-
+using UnityEngine.AI;
 [CreateAssetMenu(menuName = "AI/Actions/Fetch")]
 public class FetchAction : Action
 {
@@ -17,7 +17,7 @@ public class FetchAction : Action
             controller.fetchObj.transform.localPosition = new Vector3(0.0f, 0.5f, 2.2f);
 
             controller.target = VisibilityManager.Instance.getNearPrison(controller.transform);
-            controller.navMeshAgent.speed = controller.navMeshAgent.speed * 2;
+            //controller.navMeshAgent.speed = controller.navMeshAgent.speed * 2;
         }
     }
 
@@ -25,9 +25,11 @@ public class FetchAction : Action
     {
         if (controller.target != null)
         {
-            controller.navMeshAgent.destination = controller.target.position;
+			controller.navMeshAgent.SetDestination(controller.target.position);
             controller.navMeshAgent.isStopped = false;
-
+			if (controller.navMeshAgent.isPathStale) {
+				Debug.Log ("Staled");
+			}
             //TODO: Implement grtabbing a spy and dropping to prison.
         }
     }
@@ -36,7 +38,7 @@ public class FetchAction : Action
     {
         if (controller.target != null)
         {
-            controller.navMeshAgent.speed = controller.navMeshAgent.speed / 2;
+            //controller.navMeshAgent.speed = controller.navMeshAgent.speed / 2;
             //controller.fetchObj.transform.SetParent(controller.target.gameObject.transform);
             if (ObjectManager.Instance.Enemies.Remove(controller.fetchObj))
             {

@@ -22,7 +22,7 @@ public class State : ScriptableObject
         CheckTransitions(controller);
     }
 
-    private void CheckTransitions(StateController controller)
+	private void DoActions(StateController controller)
     {
         for (int i = 0; i < actions.Length; i++)
         {
@@ -30,7 +30,7 @@ public class State : ScriptableObject
         }
     }
 
-    private void DoActions(StateController controller)
+	private void CheckTransitions(StateController controller)
     {
         for (int i = 0; i < transitions.Length; i++)
         {
