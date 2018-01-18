@@ -138,8 +138,6 @@ public class PlayerController : MonoBehaviour
             move += new Vector3(1.0f, 0.0f, 0.0f);
         }
 
-        Debug.Log(move);
-
         Vector3 movement = move.normalized * moveSpeed * Time.deltaTime;
         //playerRB.MovePosition(playerRB.position + movement);
         transform.position += movement;
