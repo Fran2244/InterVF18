@@ -7,8 +7,7 @@ public class CharacterVisibility : MonoBehaviour {
 
     [SerializeField]
     GameObject visibleIcon;
-
-    [SerializeField]
+    
     GameObject detectionIndicator;
 
     bool trackingInProgress = false;
@@ -55,6 +54,7 @@ public class CharacterVisibility : MonoBehaviour {
 
     void Awake()
     {
+        detectionIndicator = transform.Find("indicateur").gameObject;
         detectionIndicator.GetComponent<Renderer>().enabled = false;
     }
 
