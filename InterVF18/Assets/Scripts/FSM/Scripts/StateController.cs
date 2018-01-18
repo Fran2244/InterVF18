@@ -14,10 +14,13 @@ public class StateController : MonoBehaviour
     public Transform target = null;
     public Transform eye;
     public bool isChasing = false;
+    public bool hasDocuments;
+    public GameObject documents;
 
     private void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+        hasDocuments = true;
     }
 
     void Update ()

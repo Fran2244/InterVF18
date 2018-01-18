@@ -761,6 +761,7 @@ MonoBehaviour:
   target: {fileID: 0}
   eye: {fileID: 4346283026278498}
   isChasing: 0
+  hasDocuments: 0
 --- !u!114 &114700218368700992
 MonoBehaviour:
   m_ObjectHideFlags: 1

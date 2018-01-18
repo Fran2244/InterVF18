@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7122273610bcdaf4a9a5338a7f0bf3c6, type: 3}
+  m_Name: GuardCoffreState
+  m_EditorClassIdentifier: 
+  actions:
+  - {fileID: 11400000, guid: 1b51d8c6fd89dbd449188586038a9311, type: 2}
+  transitions:
+  - decision: {fileID: 11400000, guid: 42f5b442ce306194ea12ce514133daff, type: 2}
+    trueState: {fileID: 11400000, guid: aeb92e35e3606e8418c3da42cf46b7f4, type: 2}
+    falseState: {fileID: 0}
+  gizmoColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}

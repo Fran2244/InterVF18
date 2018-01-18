@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,8 +21,11 @@ public class VisibilityManager : MonoBehaviour {
     }
     #endregion
 
-    public Transform prisonPos;
+    public Transform[] prisons;
+    public Transform[] coffres;
     [SerializeField] private State guardChaseState;
+    [SerializeField] public GameObject documents;
+    [SerializeField] public GameObject originalDocuments;
 
     [SerializeField]
     LayerMask detectionLayerMask;
@@ -33,6 +37,51 @@ public class VisibilityManager : MonoBehaviour {
         }
     }
 
+    internal Transform getNearPrison(Transform transform)
+    {
+        if (prisons.Length > 0)
+        {
+            float nearPrison = float.MaxValue;
+            Transform prison = null;
+            for (int i = 0; i < prisons.Length; i++)
+            {
+                if (Mathf.Abs((transform.position - prisons[i].position).sqrMagnitude) < nearPrison)
+                {
+                    nearPrison = Mathf.Abs((transform.position - prisons[i].position).sqrMagnitude);
+                    prison = prisons[i];
+                }
+            }
+
+            return prison;
+        }
+        else
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    internal Transform getNearCoffre(Transform transform)
+    {
+        if (coffres.Length > 0)
+        {
+            float nearCoffre = float.MaxValue;
+            Transform coffre = null;
+            for (int i = 0; i < coffres.Length; i++)
+            {
+                if (Mathf.Abs((transform.position - prisons[i].position).sqrMagnitude) < nearCoffre)
+                {
+                    nearCoffre = Mathf.Abs((transform.position - prisons[i].position).sqrMagnitude);
+                    coffre = coffres[i];
+                }
+            }
+
+            return coffre;
+        }
+        else
+        {
+            throw new NotImplementedException();
+        }
+    }
 
     List<GameObject> visibleObjects;
     public void AddVisibleObject(GameObject obj)

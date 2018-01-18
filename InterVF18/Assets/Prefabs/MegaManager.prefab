@@ -121,6 +121,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a2f51783cf476a4e99886234db97e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prisonPos: {fileID: 0}
+  guardChaseState: {fileID: 11400000, guid: ca181db5d9977a946857544e653c2104, type: 2}
+  documents: {fileID: 1227106523771506, guid: 3c20f1c362f258a43ab05e8bf76bad22, type: 2}
+  originalDocuments: {fileID: 1327899197639946, guid: 730fb7b242eed9a44b80b65cc1c1e598,
+    type: 2}
   detectionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967293

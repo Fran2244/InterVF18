@@ -13,9 +13,9 @@ public class FetchAction : Action
             controller.fetchObj = controller.target.gameObject;
             controller.fetchObj.GetComponent<Collider>().enabled = false;
             controller.fetchObj.transform.SetParent(controller.gameObject.transform);
-            controller.fetchObj.transform.localPosition = new Vector3(0.0f, 0.5f, 2.2f); 
+            controller.fetchObj.transform.localPosition = new Vector3(0.0f, 0.5f, 2.2f);
 
-            controller.target = VisibilityManager.Instance.prisonPos;
+            controller.target = VisibilityManager.Instance.getNearPrison(controller.transform);
             controller.navMeshAgent.speed = controller.navMeshAgent.speed * 2;
         }
     }

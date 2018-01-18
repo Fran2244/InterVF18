@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public bool isChasing = false;
     private RaycastHit hit;
     [HideInInspector] public GameObject enemyGameObject = null;
+    [HideInInspector] public GameObject documents = null;
+    [HideInInspector] public bool hasDocuments;
 
     bool isBuilding;
     PlaceableObject buildingObject;
@@ -49,6 +51,7 @@ public class PlayerController : MonoBehaviour
         activeOOI = new GameObject();
         InitIndicatorsToOff();
         isChasing = false;
+        hasDocuments = false;
     }
 	
     void Update()
@@ -58,7 +61,7 @@ public class PlayerController : MonoBehaviour
 
         Debug.DrawRay(eye.position, eye.forward.normalized * 2.0f, Color.green);
 
-        if (!isChasing)
+        if (!isChasing && !hasDocuments)
         {
             if (Physics.SphereCast(eye.position,
                               0.3f,

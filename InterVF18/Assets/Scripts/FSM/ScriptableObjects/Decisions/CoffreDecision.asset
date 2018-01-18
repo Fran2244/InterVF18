@@ -8,7 +8,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e16a5ee2a22da49438241b88581a79a4, type: 3}
-  m_Name: PatrolDecision
+  m_Script: {fileID: 11500000, guid: a48716375f7777b499b4efca5f4ef8b1, type: 3}
+  m_Name: CoffreDecision
   m_EditorClassIdentifier: 
-  distance: 2
+  coffreDistance: 3
