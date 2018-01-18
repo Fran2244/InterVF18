@@ -8,6 +8,9 @@ public class CharacterVisibility : MonoBehaviour {
     [SerializeField]
     GameObject visibleIcon;
 
+    [SerializeField]
+    GameObject detectionIndicator;
+
     public bool isChased = false;
 
     bool isTracked;
@@ -45,6 +48,11 @@ public class CharacterVisibility : MonoBehaviour {
                 VisibilityManager.Instance.RemoveVisibleObject(gameObject);
             }
         }
+    }
+
+    void Awake()
+    {
+        detectionIndicator.GetComponent<Renderer>().enabled = false;
     }
 
     private void Update()
