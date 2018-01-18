@@ -11473,6 +11473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 006dc53b67ba1cd4abda5ad8630b7fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  edgeDir: -1
 --- !u!1 &1215311529 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: e5aadee70ff713c41b5023046868be00, type: 3}

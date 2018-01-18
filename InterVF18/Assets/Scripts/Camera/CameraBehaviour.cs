@@ -49,6 +49,7 @@ class CameraBehaviour : MonoBehaviour
     bool screenEdgeDetected = false;
     float timer = 0f;
     bool initComplete = false;
+    public int edgeDir;
     #endregion
 
     void Awake()
@@ -100,25 +101,25 @@ class CameraBehaviour : MonoBehaviour
         screenEdgeTranslate = Vector2.zero;
         if (Input.mousePosition.x > screenXY.x * screenEdgeDetection)
         {
-            screenEdgeTranslate.x += camScreenBorderTranslateSpeed;
+            screenEdgeTranslate.x += camScreenBorderTranslateSpeed * edgeDir;
             currentMode = Modes.SCREENEDGE;
             screenEdgeDetected = true;
         }
         else if (Input.mousePosition.x < screenXY.x * (1 - screenEdgeDetection))
         {
-            screenEdgeTranslate.x -= camScreenBorderTranslateSpeed;
+            screenEdgeTranslate.x -= camScreenBorderTranslateSpeed * edgeDir;
             currentMode = Modes.SCREENEDGE;
             screenEdgeDetected = true;
         }
         if (Input.mousePosition.y < screenXY.y * (1 - screenEdgeDetection))
         {
-            screenEdgeTranslate.y -= camScreenBorderTranslateSpeed;
+            screenEdgeTranslate.y -= camScreenBorderTranslateSpeed * edgeDir;
             currentMode = Modes.SCREENEDGE;
             screenEdgeDetected = true;
         }
         else if (Input.mousePosition.y > screenXY.y * screenEdgeDetection)
         {
-            screenEdgeTranslate.y += camScreenBorderTranslateSpeed;
+            screenEdgeTranslate.y += camScreenBorderTranslateSpeed * edgeDir;
             currentMode = Modes.SCREENEDGE;
             screenEdgeDetected = true;
         }
