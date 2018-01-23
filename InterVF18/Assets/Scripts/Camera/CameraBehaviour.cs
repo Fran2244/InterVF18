@@ -71,7 +71,6 @@ class CameraBehaviour : MonoBehaviour
             relativeWorldPos = new GameObject();
             relativeWorldPos.transform.rotation = player.rotation;
             shouldStartCoundown = false;
-            Cursor.lockState = CursorLockMode.Confined;
             initComplete = true;
         }
         catch(System.Exception e)

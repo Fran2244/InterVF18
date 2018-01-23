@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4295086615769004}
   - component: {fileID: 33466529447929592}
   - component: {fileID: 23099094188325870}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: pince01_droit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4295966146431628}
   - component: {fileID: 33336753081932074}
   - component: {fileID: 23714180056438928}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: pince02_droit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4887510936493162}
   - component: {fileID: 95394914413093776}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: garde
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 4068251121363454}
   - component: {fileID: 33077277046065796}
   - component: {fileID: 23714006202286706}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: petit_bras
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4633240126646374}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: pince
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 4874638585347968}
   - component: {fileID: 33644155202599902}
   - component: {fileID: 23668537136024150}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 136222560298826774}
   - component: {fileID: 54448144384482510}
   - component: {fileID: 114991542910811496}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Garde
   m_TagString: Guard
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 4308247338376470}
   - component: {fileID: 33118367241478868}
   - component: {fileID: 23671563033262314}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4346283026278498}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 4628193866312454}
   - component: {fileID: 33352763053307968}
   - component: {fileID: 23864650616442608}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: pince02_gauche
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 4742653088878710}
   - component: {fileID: 198902102413344494}
   - component: {fileID: 199121340489043604}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 4780645665353278}
   - component: {fileID: 33647787878289892}
   - component: {fileID: 23730100195433416}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: pince01_gauche
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 4592106519591920}
   - component: {fileID: 33581323606093954}
   - component: {fileID: 23060545881395462}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: pCylinder4
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -21,6 +21,8 @@ public class PrisonController : MonoBehaviour
             if (ObjectManager.Instance.Enemies.Remove(player.enemyGameObject))
             {
                 Destroy(player.enemyGameObject);
+				Money.Add (player.enemyGameObject.GetComponent<MoneyValue> ().moneyValue);
+				MoneyController.Instance.UpdateMoneyOnHUD ();
             }          
             player.enemyGameObject = null;
             player.animator.SetBool("RightHandUp", false);

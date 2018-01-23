@@ -69,6 +69,7 @@ public class WaveManager : MonoBehaviour {
             {
 
                 GameObject enemy = Instantiate(wave.waveEnemies[i].prefab);
+				enemy.GetComponent<MoneyValue> ().moneyValue = (int)wave.resourcesKill;
                 StateController controller = enemy.GetComponent<StateController>();
                 controller.GetComponent<NavMeshAgent>().enabled = false;
                 controller.wayPoints = paths[wave.pathIndex].GetPath();
