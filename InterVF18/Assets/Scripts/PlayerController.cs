@@ -180,7 +180,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetButton("BuildGuard") || Input.GetButton("BuildCamera") || Input.GetButton("BuildTripWire"))
         {
-            if (activeOOI.GetComponent<PlaceableObject>() != null)
+            if (activeOOI!=null && activeOOI.GetComponent<PlaceableObject>() != null)
             {
                 if (activeOOI.GetComponent<PlaceableObject>().PlaceObject(false) == false)
                 {
