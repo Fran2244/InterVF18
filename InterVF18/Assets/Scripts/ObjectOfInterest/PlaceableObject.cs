@@ -14,7 +14,7 @@ class PlaceableObject : MonoBehaviour {
     float maxDistToPlaceTrip = 3.75f;
     float distGuardFromPlayer = 0.5f;
     public bool objectPlaced = false;
-    Vector3 camOffset = new Vector3(0f,0.5f,0f);
+    Vector3 camOffset = new Vector3(0f,4f,0f);
     List<RaycastHit> hitList = new List<RaycastHit>();
     List<RaycastHit> hitList2 = new List<RaycastHit>();
     Transform objectsOfInterestParent;
