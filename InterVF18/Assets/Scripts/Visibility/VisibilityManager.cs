@@ -25,6 +25,7 @@ public class VisibilityManager : MonoBehaviour {
     public Transform[] coffres;
     [SerializeField] private State guardChaseState;
     [SerializeField] public GameObject documents;
+    [SerializeField] public GameObject playerDocuments;
     [SerializeField] public GameObject originalDocuments;
 
     [SerializeField]

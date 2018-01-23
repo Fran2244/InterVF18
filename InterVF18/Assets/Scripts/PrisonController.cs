@@ -30,7 +30,7 @@ public class PrisonController : MonoBehaviour
             if (hasDocuments)
             {
                 player.hasDocuments = true;
-                player.documents = Instantiate(VisibilityManager.Instance.documents, player.gameObject.transform);
+                player.documents = Instantiate(VisibilityManager.Instance.playerDocuments, player.gameObject.transform);
                 player.documents.GetComponent<Collider>().enabled = false;
                 player.animator.SetBool("RightHandUp", true);
             }
