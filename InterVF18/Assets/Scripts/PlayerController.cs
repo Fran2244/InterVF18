@@ -8,6 +8,7 @@ using System.Collections;
 [RequireComponent(typeof(Animator))]
 public class PlayerController : MonoBehaviour
 {
+    public Vector3 EnemyPos = new Vector3(0.15f, 1.3f, 3.75f);
     [SerializeField] private float moveSpeed = 10.0f;
     [SerializeField] private float turnSpeed = 1.0f;
     [SerializeField] private Transform eye;
@@ -78,13 +79,17 @@ public class PlayerController : MonoBehaviour
                 {
                     enemy.isChased = true;
 
+                    enemy.gameObject.GetComponent<CharacterWobble>().enabled = false;
                     StateController targetState = enemy.gameObject.GetComponent<StateController>();
                     targetState.currentState = null;
                     targetState.navMeshAgent.enabled = false;
                     enemy.gameObject.GetComponent<Collider>().enabled = false;
                     enemyGameObject = enemy.gameObject;
                     isChasing = true;
-                    StartCoroutine(FetchEnemy());
+                    animator.SetBool("RightHandUp", true);
+                    animator.SetBool("LeftHandUp", true);
+                    enemyGameObject.transform.SetParent(gameObject.transform);
+                    //StartCoroutine(FetchEnemy());
                 }
             }
         }
@@ -92,7 +97,7 @@ public class PlayerController : MonoBehaviour
         {
             if (enemyGameObject != null)
             {
-                enemyGameObject.transform.localPosition = new Vector3(0.15f, 1.3f, 3.75f);
+                enemyGameObject.transform.localPosition = EnemyPos;
             }
         }
     }
