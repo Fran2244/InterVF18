@@ -27,7 +27,8 @@ public class FetchAction : Action
         {
 			controller.navMeshAgent.SetDestination(controller.target.position);
             controller.navMeshAgent.isStopped = false;
-			if (controller.navMeshAgent.isPathStale) {
+            controller.fetchObj.transform.localPosition = new Vector3(0.0f, 0.5f, 2.2f);
+            if (controller.navMeshAgent.isPathStale) {
 				Debug.Log ("Staled");
 			}
             //TODO: Implement grtabbing a spy and dropping to prison.
