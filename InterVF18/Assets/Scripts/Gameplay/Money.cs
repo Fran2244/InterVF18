@@ -16,6 +16,7 @@
 
     ///// Singleton /////
     private Money() {
+		//MoneyController.Instance.UpdateMoneyOnHUD ();
     }
 
     static private Money singleton;
@@ -38,6 +39,7 @@
 
     void _Add(int amount) {
         _money += amount;
+		MoneyController.Instance.UpdateMoneyOnHUD ();
     }
 
     ///// Buy //////
@@ -48,6 +50,7 @@
     bool _Buy(int amount) {
         if (_money >= amount) {
             _money -= amount;
+			MoneyController.Instance.UpdateMoneyOnHUD ();
             return true;
         } else
             return false;
@@ -69,6 +72,7 @@
 
     static public void reset() {
         Singleton._reset();
+		MoneyController.Instance.UpdateMoneyOnHUD ();
     }
 
     void _reset() {
@@ -76,7 +80,7 @@
         _priceCamera = priceCamera;
         _priceGuard = priceGuard;
         _priceLaser = priceLaser;
-
+		MoneyController.Instance.UpdateMoneyOnHUD ();
     }
 
     ///// Camera /////

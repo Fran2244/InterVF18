@@ -43,6 +43,7 @@ public class FetchAction : Action
             if (ObjectManager.Instance.Enemies.Remove(controller.fetchObj))
             {
                 Destroy(controller.fetchObj, 1.0f);
+				Money.Add (controller.fetchObj.GetComponent<MoneyValue> ().moneyValue);
             }
         }
 
