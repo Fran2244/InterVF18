@@ -20,7 +20,6 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public GameObject documents = null;
     [HideInInspector] public bool hasDocuments;
 
-    bool isBuilding;
     PlaceableObject buildingObject;
 
     #region ObjectsOfInterest
@@ -51,7 +50,6 @@ public class PlayerController : MonoBehaviour
         placeSound = GetComponents<AudioSource>();
         playerRB = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
-        isBuilding = false;
         activeOOI = new GameObject();
         InitIndicatorsToOff();
         isChasing = false;
@@ -200,7 +198,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetButtonUp("BuildGuard") || Input.GetButtonUp("BuildCamera") || Input.GetButtonUp("BuildTripWire"))
         {
-            if (activeOOI.GetComponent<PlaceableObject>() != null)
+			if (activeOOI != null && activeOOI.GetComponent<PlaceableObject>() != null)
             {
                 InitIndicatorsToOff();
                 if (activeOOI.GetComponent<PlaceableObject>().PlaceObject(false))

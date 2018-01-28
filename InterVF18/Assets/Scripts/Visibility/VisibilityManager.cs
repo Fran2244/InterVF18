@@ -134,7 +134,6 @@ public class VisibilityManager : MonoBehaviour {
                     }
                     if (guard != null)
                     {
-						Debug.Log ("asdfasdfsa asdf asd");
                         character.isChased = true;
                         guard.isChasing = true;
                         guard.target = character.transform;
